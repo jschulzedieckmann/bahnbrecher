@@ -13,15 +13,15 @@ Status: ✅ erledigt · 🔄 läuft · ⬜ offen
 | 4 | Design-Richtung | ✅ | 2026-10-18 |
 | 5 | Bauen | ✅ | 2026-10-19 |
 | 6 | Prüfen und Feinschliff | ✅ | 2026-10-19 |
-| 7 | Livegang | 🔄 | 2026-10-19 |
+| 7 | Livegang | ✅ | 2026-10-19 |
 | 8 | Danach | ⬜ | |
 
 ## Ausgangslage
 
 - Bestehende Website oder Marke: keine Website, aber Logo/Markendateien vorhanden (Name: Bahnbrecher)
 - Hauptziel der Seite: geschlossener Mitgliederbereich (nur mit Login) für Termine, Statistiken und Vereinsinfos. Ursprünglich „informieren“ gewählt, am 2026-10-18 präzisiert.
-- Hosting: Netlify oder Vercel (statische Seite)
-- Werkzeuge: impeccable ✅ (Plugin 4.6.0, Projekt; nach Neustart geladen) · Playwright ✅ (1.64, nutzt installiertes Chrome, channel="chrome") · DataForSEO – (bewusst weggelassen, Recherche ohne Suchdaten) · Hosting-MCP ⬜ · Supabase-MCP ✅ · Node.js 24 ✅ · Formular-Ziel ⬜
+- Hosting: Vercel (Region Frankfurt), live unter https://bahnbrecher.vercel.app, Code in github.com/jschulzedieckmann/bahnbrecher (privat)
+- Werkzeuge: impeccable ✅ (Plugin 4.6.0, Projekt; nach Neustart geladen) · Playwright ✅ (1.64, nutzt installiertes Chrome, channel="chrome") · DataForSEO – (bewusst weggelassen, Recherche ohne Suchdaten) · Hosting: Vercel per GitHub ✅ · Supabase-MCP ✅ · Node.js 24 ✅ · Formular: entfällt (kein Kontaktformular)
 
 ## Marke
 
@@ -72,11 +72,18 @@ Jede Entscheidung der Person mit Datum, damit sie nicht erneut diskutiert wird.
 - 2026-10-19: Startdaten geladen (8 Zugänge, 3 Spieltage, 18 Ergebnisse, 18 Kegelspiele). Die Summen stimmen mit der Auswertung überein. Julian hat sein eigenes Passwort gesetzt. Lokal mit Testzugang auf Handy und PC getestet: Anmeldung, Willkommen, alle Seiten, Termin anlegen und löschen, Spieltag erfassen, abschließen und löschen. Fehler behoben, Testzugang und Testdaten wieder entfernt. Start lokal: Vorschau „bahnbrecher“ (npm run dev, Port 3000).
 - 2026-10-19: Phase 6: Prüfdurchgang (48 Aufnahmen, kein seitliches Scrollen, je eine H1, keine Schrift unter 12px). Unabhängiger Finish-Reviewer: erst „recapture“, dann „fix“ mit 8 Punkten, nach dem Fix-Durchgang „ship“ für alle 8 (das Urteil deckt die 8 Punkte ab, keine Gesamtprüfung jeder Seite). DESIGN.md und .impeccable/design.json vom Documenter geschrieben, die Bilder tragen ihre Herkunft. impeccable detect: 0 Befunde, mit 2 eng begrenzten Ausnahmen für dokumentierte Größen der Wortmarke. Regler-Panel entfällt (für statische Seiten gedacht), Feinschliff per Chat.
 - 2026-10-19: Phase 6 abgenommen.
+- 2026-10-19: Phase 7 angepasst an die Mitglieder-App: keine Sitemap, kein llms.txt, keine strukturierten Daten und kein Formular. robots.txt und der Header X-Robots-Tag sperren Suchmaschinen.
+- 2026-10-19: Cookies und AGB geprüft: Vor dem Login gibt es keine Cookies, keinen lokalen Speicher und keine fremden Hosts, nach dem Login nur das Supabase-Login-Cookie (technisch nötig). Kein Banner nötig, keine AGB (kein Verkauf). Keine Rechtsberatung.
+- 2026-10-19: Rechtstexte: Die Person hat entschieden, keine anzulegen (kein Impressum, kein Datenschutz-Hinweis). Hinweis auf die Informationspflicht nach Art. 13 DSGVO wurde gegeben, ein Nachrüsten ist jederzeit möglich.
+- 2026-10-19: Live: Vercel-Projekt „bahnbrecher“ über GitHub importiert, 5 Umgebungsvariablen von der Person eingetragen. Live geprüft: HTTPS, Umleitung auf /anmelden, robots und noindex, /api/wach liefert 401 ohne Schlüssel, Login mit Testzugang, alle Seiten, Abmelden, keine fremden Hosts. Der Testzugang ist gelöscht. Die Frist der Startpasswörter (7 Mitglieder) wurde neu gestartet und läuft bis 2026-10-26.
 - 2026-10-18: Handy-Regel: Der Schriftführer darf am Abend aufs Handy schauen.
 
 ## Offene Fragen an die Person
 
-- Vor dem Livegang: Die Startpasswörter der 7 anderen Mitglieder laufen 7 Tage nach dem Anlegen ab (am 2026-10-26). Beim Livegang die Frist neu starten (Zeitstempel `passwort_zurueckgesetzt_am` auf den Livegang-Tag setzen), sonst sind die Zugänge gesperrt, bevor jemand sie benutzt.
+- Julian: Bankverbindung unter Verwaltung → Beitrag eintragen.
+- Julian: Mitgliedern Link, Benutzernamen und Startpasswort schicken. Die Startpasswörter gelten bis 2026-10-26, danach unter Verwaltung → Mitglied → „Passwort zurücksetzen“ neu starten.
+- Julian: Ersten Kegelabend unter Termine anlegen.
+- Wachhalte-Aufruf: Der erste Lauf ist am nächsten Morgen um 6 Uhr UTC. In Vercel unter Settings → Cron Jobs prüfen (noch nicht gesehen).
 - Feste Uhrzeit des Kegelabends? Adresse der Gaststätte Schwenken?
 - Auf welcher Bahnart wird in der Gaststätte Schwenken gekegelt (Asphalt, Bohle, Schere)? Das ist wichtig für die Kegelspiele.
 - Kegelabende-Daten: Bei anwesenden Spielern wurde eine leere Zelle als 0 übernommen, zum Beispiel Julian am 25.06. bei „alle Neune“. Stimmt das?
@@ -85,8 +92,8 @@ Jede Entscheidung der Person mit Datum, damit sie nicht erneut diskutiert wird.
 
 ## Update-Ablauf nach dem Livegang
 
-1. Änderung in der Seite und in `texte.md`
-2. `python deploy/build.py`
-3. Upload:
-4. Cache leeren:
-5. Live prüfen
+1. Änderung im Code und, bei Texten, in `texte.md`
+2. Lokal prüfen: `npm run dev`, dann `npx tsc --noEmit` und `npx eslint src`
+3. Commit und `git push` auf `main`. Vercel baut und veröffentlicht automatisch.
+4. Schemaänderungen als neue Datei in `supabase/migrations/` und über den Supabase-MCP einspielen
+5. Live prüfen: https://bahnbrecher.vercel.app
