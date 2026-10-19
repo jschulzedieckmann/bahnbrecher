@@ -26,6 +26,9 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#0f8ac7",
+  // Die Seite zeichnet bis unter die Gestenleiste. Den Bereich färbt die Tab-Leiste selbst
+  // (rahmen.module.css), sonst malt Chrome ihn cremefarben und die Leiste wirkt zu hoch.
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

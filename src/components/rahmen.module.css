@@ -100,8 +100,9 @@
   z-index: 20;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  padding: 6px 4px calc(8px + env(safe-area-inset-bottom));
-  background: var(--creme);
+  padding: 4px 4px calc(4px + env(safe-area-inset-bottom, 0px));
+  /* Unter den Icons nur der Bereich der Gestenleiste, dunkel wie die Systemleiste. */
+  background: linear-gradient(to top, var(--ink) env(safe-area-inset-bottom, 0px), var(--creme) 0);
   border-top: var(--kontur) solid var(--ink);
 }
 
