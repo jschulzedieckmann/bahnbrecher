@@ -3,7 +3,7 @@
 import { useActionState, useState } from "react";
 import type { FormStatus } from "@/app/(zugang)/aktionen";
 import type { Einstellungen, MitgliedKurz } from "@/lib/daten";
-import { beitragSpeichern, mitgliedAnlegen, mitgliedSpeichern } from "./aktionen";
+import { beitragSpeichern, kasseSpeichern, mitgliedAnlegen, mitgliedSpeichern } from "./aktionen";
 
 function RollenWahl({ wert }: { wert?: string }) {
   return (
@@ -116,6 +116,35 @@ export function BeitragFormular({ werte }: { werte: Einstellungen | null }) {
         <label htmlFor="betrag">Monatsbeitrag in €</label>
         <input id="betrag" name="betrag" className="eingabe" inputMode="decimal" defaultValue={String(werte?.beitrag_betrag ?? 8).replace(".", ",")} aria-describedby="betrag-hinweis" />
         <span id="betrag-hinweis" className="hinweis">Laut § 4 sind es 8 €.</span>
+      </div>
+      {status?.fehler && <p className="fehler" role="alert">{status.fehler}</p>}
+      {status?.ok && <p className="erfolg" role="status">{status.ok}</p>}
+      <button className="knopf" type="submit" disabled={laeuft}>{laeuft ? "Kugel rollt …" : "Speichern"}</button>
+    </form>
+  );
+}
+
+function betragFeld(wert: number | null | undefined) {
+  return wert == null ? "" : String(wert).replace(".", ",");
+}
+
+export function KasseFormular({ werte }: { werte: Einstellungen | null }) {
+  const [status, aktion, laeuft] = useActionState(kasseSpeichern, undefined);
+  return (
+    <form action={aktion} className="formular">
+      <div className="feld">
+        <label htmlFor="stand">Kontostand in €</label>
+        <input id="stand" name="stand" className="eingabe" inputMode="decimal" defaultValue={betragFeld(werte?.kasse_stand)} autoComplete="off" aria-describedby="stand-hinweis" />
+        <span id="stand-hinweis" className="hinweis">Das heutige Datum wird als Stand gespeichert. Leer lassen blendet die Kachel aus.</span>
+      </div>
+      <div className="feld">
+        <label htmlFor="ziel">Sparziel in € (freiwillig)</label>
+        <input id="ziel" name="ziel" className="eingabe" inputMode="decimal" defaultValue={betragFeld(werte?.kasse_ziel)} autoComplete="off" aria-describedby="ziel-hinweis" />
+        <span id="ziel-hinweis" className="hinweis">Mit Sparziel zeigt die Kachel einen Füllbalken.</span>
+      </div>
+      <div className="feld">
+        <label htmlFor="ziel_text">Wofür sparen wir? (freiwillig)</label>
+        <input id="ziel_text" name="ziel_text" className="eingabe" defaultValue={werte?.kasse_ziel_text ?? ""} placeholder="zum Beispiel Kegeltour 2027" />
       </div>
       {status?.fehler && <p className="fehler" role="alert">{status.fehler}</p>}
       {status?.ok && <p className="erfolg" role="status">{status.ok}</p>}

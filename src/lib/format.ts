@@ -60,3 +60,9 @@ export function namenListe(namen: string[]): string {
   if (namen.length <= 1) return namen[0] ?? "";
   return `${namen.slice(0, -1).join(", ")} und ${namen[namen.length - 1]}`;
 }
+
+/** Betrag in Euro, ganze Beträge ohne Nachkommastellen: "312 €", "312,50 €". */
+export function euro(betrag: number) {
+  const ganz = Number.isInteger(betrag);
+  return `${betrag.toLocaleString("de-DE", { minimumFractionDigits: ganz ? 0 : 2, maximumFractionDigits: 2 })} €`;
+}

@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { darfErfassen, mitgliedPflicht } from "@/lib/auth";
 import {
-  anmeldeListe, anmeldungen, auswertung, ergebnisse, gossenjungenVon, jahresSpitze, letzterGewerteterSpieltag, mitglieder, namensKarte, naechsterSpieltag, spieltage, termine,
-  type MitgliedKurz, type Spieltag,
+  anmeldeListe, anmeldungen, auswertung, einstellungen, ergebnisse, gossenjungenVon, jahresSpitze, letzterGewerteterSpieltag, mitglieder, namensKarte, naechsterSpieltag, spieltage, termine,
+  type Einstellungen, type MitgliedKurz, type Spieltag,
 } from "@/lib/daten";
 import {
-  datumKurz, datumMitJahr, heuteIso, namenListe, nochTage, tageBis, uhrzeit, wochentagKurz,
+  datumKurz, datumMitJahr, euro, heuteIso, namenListe, nochTage, tageBis, uhrzeit, wochentagKurz,
 } from "@/lib/format";
 import { Banderole, Rangliste } from "@/components/bausteine";
 import { AnmeldeAnzeige } from "@/components/anmelde-anzeige";
@@ -18,13 +18,15 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
   const { willkommen, geplant } = await searchParams;
   const jahr = Number(heuteIso().slice(0, 4));
 
-  const [kommende, leute, tageJahr, alleTage, naechster] = await Promise.all([
+  const [kommende, leute, tageJahr, alleTage, naechster, e] = await Promise.all([
     termine("kommend", 6),
     mitglieder(false),
     spieltage(jahr),
     spieltage(),
     naechsterSpieltag(),
+    einstellungen(),
   ]);
+  const istAdmin = profil.rolle === "admin";
   const letzter = await letzterGewerteterSpieltag(alleTage);
   const anmeldeStand = naechster ? anmeldeListe(await anmeldungen(naechster.id), leute) : null;
   const erg = await ergebnisse([...new Set([...tageJahr.map((t) => t.id), ...(letzter ? [letzter.id] : [])])]);
@@ -125,6 +127,12 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
               />
             </Banderole>
           </div>
+
+          {(e?.kasse_stand != null || istAdmin) && (
+            <div className={styles.platzKasse}>
+              <Kasse werte={e} istAdmin={istAdmin} />
+            </div>
+          )}
         </div>
       </div>
     </>
@@ -183,5 +191,46 @@ function Plakat({ spieltag, kannErfassen, anmeldeStand, ichId }: {
         <Link href="/spieltage" className="knopf knopf--hell">Zu den Spieltagen</Link>
       </div>
     </section>
+  );
+}
+
+function Kasse({ werte, istAdmin }: { werte: Einstellungen | null; istAdmin: boolean }) {
+  const stand = werte?.kasse_stand == null ? null : Number(werte.kasse_stand);
+  const ziel = werte?.kasse_ziel == null ? null : Number(werte.kasse_ziel);
+  const prozent = stand !== null && ziel ? Math.round((Math.max(stand, 0) / ziel) * 100) : null;
+  return (
+    <Banderole titel="Vereinskasse" id="kasse" link={istAdmin ? { href: "/verwaltung#kasse", text: "Eintragen" } : undefined}>
+      <div className="blatt-inhalt">
+        {stand === null ? (
+          <p className={styles.notiz}>Noch kein Kassenstand eingetragen. Das geht in der Verwaltung.</p>
+        ) : (
+          <>
+            <p className={styles.kasseStand}>
+              <strong className="zahl">{euro(stand)}</strong>
+              {werte?.kasse_stand_am && <span className={styles.notiz}>Stand {datumMitJahr(werte.kasse_stand_am)}</span>}
+            </p>
+            {ziel !== null && prozent !== null && (
+              <>
+                <div
+                  className={styles.kasseBalken}
+                  role="meter"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={Math.min(prozent, 100)}
+                  aria-label={`Sparziel zu ${prozent} Prozent erreicht`}
+                >
+                  <span style={{ width: `${Math.min(prozent, 100)}%` }} />
+                </div>
+                <p className={styles.notiz}>
+                  {prozent >= 100 ? "Sparziel erreicht" : `${prozent} % von ${euro(ziel)}`}
+                  {werte?.kasse_ziel_text && <> für {werte.kasse_ziel_text}</>}
+                  {prozent >= 100 ? "!" : ""}
+                </p>
+              </>
+            )}
+          </>
+        )}
+      </div>
+    </Banderole>
   );
 }

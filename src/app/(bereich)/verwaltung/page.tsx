@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { adminPflicht, anzeigename } from "@/lib/auth";
 import { einstellungen, mitglieder } from "@/lib/daten";
 import { Banderole, Seitenkopf } from "@/components/bausteine";
-import { BeitragFormular, NeuesMitglied } from "./formulare";
+import { BeitragFormular, KasseFormular, NeuesMitglied } from "./formulare";
 import styles from "./verwaltung.module.css";
 
 export const metadata: Metadata = { title: "Verwaltung" };
@@ -41,6 +41,10 @@ export default async function Verwaltung({ searchParams }: { searchParams: Promi
 
       <Banderole titel="Beitrag" farbe="blau" id="beitrag">
         <div className="blatt-inhalt"><BeitragFormular werte={e} /></div>
+      </Banderole>
+
+      <Banderole titel="Vereinskasse" id="kasse">
+        <div className="blatt-inhalt"><KasseFormular werte={e} /></div>
       </Banderole>
     </>
   );

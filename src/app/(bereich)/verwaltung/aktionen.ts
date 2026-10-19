@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { adminPflicht } from "@/lib/auth";
+import { heuteIso } from "@/lib/format";
 import { createAdminClient, createClient } from "@/lib/supabase/server";
 import { benutzernameNormalisieren, benutzernameZuEmail, passwortFuerSupabase } from "@/lib/zugang";
 import type { FormStatus } from "@/app/(zugang)/aktionen";
@@ -134,4 +135,33 @@ export async function beitragSpeichern(_: FormStatus, form: FormData): Promise<F
   if (error) return { fehler: "Speichern hat nicht geklappt. Versuch es noch mal." };
   revalidatePath("/beitrag");
   return { ok: "Bankverbindung gespeichert." };
+}
+
+function betragAus(wert: FormDataEntryValue | null): number | null | undefined {
+  const text = String(wert ?? "").replace(/\s|€/g, "").replace(/\.(?=\d{3}(\D|$))/g, "").replace(",", ".");
+  if (!text) return null;
+  const zahl = Number(text);
+  return Number.isFinite(zahl) ? Math.round(zahl * 100) / 100 : undefined;
+}
+
+export async function kasseSpeichern(_: FormStatus, form: FormData): Promise<FormStatus> {
+  await adminPflicht();
+  const stand = betragAus(form.get("stand"));
+  const ziel = betragAus(form.get("ziel"));
+  if (stand === undefined) return { fehler: "Bitte gib einen gültigen Kontostand ein, zum Beispiel 312,50." };
+  if (ziel === undefined || (ziel !== null && ziel <= 0)) return { fehler: "Das Sparziel muss ein Betrag über 0 sein, oder du lässt es leer." };
+
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("einstellungen")
+    .update({
+      kasse_stand: stand,
+      kasse_stand_am: stand === null ? null : heuteIso(),
+      kasse_ziel: ziel,
+      kasse_ziel_text: ziel === null ? null : String(form.get("ziel_text") ?? "").trim() || null,
+    })
+    .eq("id", true);
+  if (error) return { fehler: "Speichern hat nicht geklappt. Versuch es noch mal." };
+  revalidatePath("/");
+  return { ok: "Kassenstand gespeichert. Er steht jetzt auf der Startseite." };
 }

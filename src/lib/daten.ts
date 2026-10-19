@@ -209,13 +209,17 @@ export type Einstellungen = {
   beitrag_iban: string | null;
   beitrag_verwendungszweck: string | null;
   beitrag_betrag: number | null;
+  kasse_stand: number | null;
+  kasse_stand_am: string | null;
+  kasse_ziel: number | null;
+  kasse_ziel_text: string | null;
 };
 
 export async function einstellungen(): Promise<Einstellungen | null> {
   const supabase = await createClient();
   const { data } = await supabase
     .from("einstellungen")
-    .select("beitrag_empfaenger, beitrag_iban, beitrag_verwendungszweck, beitrag_betrag")
+    .select("beitrag_empfaenger, beitrag_iban, beitrag_verwendungszweck, beitrag_betrag, kasse_stand, kasse_stand_am, kasse_ziel, kasse_ziel_text")
     .maybeSingle();
   return (data as Einstellungen | null) ?? null;
 }
