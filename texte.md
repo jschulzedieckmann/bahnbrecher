@@ -117,6 +117,8 @@ Buttons: Spieltag planen (Schriftführer und Admins) · Zu den Spieltagen
 
 **Bei Gleichstand:** {Name} und {Name} teilen sich den Titel. Je {n} Gossen am {Datum}.
 
+**Regel:** Maßgeblich ist der jüngste Abend, an dem Gossen gezählt und mindestens eine eingetragen wurde, auch wenn er noch offen ist.
+
 **Wenn noch keine Gossen erfasst sind:** Noch kein Gossenjunge. Der Titel wird nach dem ersten Spieltag mit Gossen vergeben.
 
 ### Block „Kegelkönig {Jahr}“

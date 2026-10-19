@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { darfErfassen, mitgliedPflicht } from "@/lib/auth";
 import {
-  auswertung, ergebnisse, gossenjungenVon, letzterGewerteterSpieltag, mitglieder, namensKarte, naechsterSpieltag, spieltage, termine,
+  amtierenderGossenjunge, auswertung, ergebnisse, gossenjungenVon, letzterGewerteterSpieltag, mitglieder, namensKarte, naechsterSpieltag, spieltage, termine,
   type Spieltag,
 } from "@/lib/daten";
 import {
@@ -30,7 +30,8 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
 
   // Termine sind nur noch für alles neben dem Kegeln da, etwa Ausflüge.
   const weitereTermine = kommende.filter((t) => t.art !== "kegelabend").slice(0, 3);
-  const gj = letzter ? gossenjungenVon(letzter, erg, namen) : null;
+  const gj = await amtierenderGossenjunge(alleTage, namen);
+  const gjLetzter = letzter ? gossenjungenVon(letzter, erg, namen) : null;
   const jahrErg = erg.filter((e) => tageJahr.some((t) => t.id === e.spieltag_id));
   const zeilen = auswertung(tageJahr, jahrErg, leute);
   const letzteErg = letzter ? erg.filter((e) => e.spieltag_id === letzter.id) : [];
@@ -78,7 +79,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
                   {meisteSiege > 0 && (
                     <p className={styles.notiz}>
                       Meiste Siege: {namenListe(letzteErg.filter((e) => e.siege === meisteSiege).map((e) => namen.get(e.profil_id) ?? "?"))} ({meisteSiege})
-                      {gj && gj.anzahl > 0 && <> · Meiste Gossen: {namenListe(gj.namen)} ({gj.anzahl})</>}
+                      {gjLetzter && gjLetzter.anzahl > 0 && <> · Meiste Gossen: {namenListe(gjLetzter.namen)} ({gjLetzter.anzahl})</>}
                     </p>
                   )}
                 </div>
@@ -91,7 +92,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
           <div className={styles.platzGossen}>
             <Banderole titel={gj && gj.namen.length > 1 ? "Amtierende Gossenjungen" : "Amtierender Gossenjunge"} id="gossenjunge">
               <div className="blatt-inhalt">
-                {gj && gj.namen.length > 0 && letzter ? (
+                {gj ? (
                   <>
                     <p className={styles.titeltraeger}>
                       <span className="plakatschrift--tinte">{namenListe(gj.namen)}</span>
@@ -99,11 +100,13 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
                     </p>
                     <p className={styles.notiz}>
                       {gj.namen.length > 1 ? "Teilen sich den Titel. " : ""}
-                      Gossen am {datumKurz(letzter.datum)} Der Titel gilt bis zum nächsten Kegelabend.
+                      Gossen am {datumKurz(gj.tag.datum)} Der Titel gilt bis zum nächsten Kegelabend.
                     </p>
                   </>
                 ) : (
-                  <p className={styles.notiz}>Noch kein Gossenjunge. Der Titel wird nach dem ersten Spieltag mit Gossen vergeben.</p>
+                  <p className={styles.notiz}>
+                    Noch kein Gossenjunge. Der Titel wird nach dem ersten Spieltag mit Gossen vergeben.
+                  </p>
                 )}
               </div>
             </Banderole>

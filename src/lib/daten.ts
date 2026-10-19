@@ -126,11 +126,29 @@ export async function verfuegbareJahre(): Promise<number[]> {
   return [...jahre].sort((a, b) => b - a);
 }
 
-/** Der jüngste Spieltag bis heute, an dem mindestens eine Person eingetragen ist. */
+/** Der jüngste Spieltag bis heute, an dem mindestens eine Person eingetragen ist (auch wenn noch offen). */
 export async function letzterGewerteterSpieltag(alle: Spieltag[]): Promise<Spieltag | undefined> {
   const kandidaten = alle.filter((t) => t.datum <= heuteIso()).slice(0, 6);
   const erg = await ergebnisse(kandidaten.map((t) => t.id));
   return kandidaten.find((t) => erg.some((e) => e.spieltag_id === t.id));
+}
+
+/**
+ * Der amtierende Gossenjunge: wer am jüngsten Abend mit gezählten Gossen die meisten hatte.
+ * Offene Abende zählen mit. Abende ohne eine einzige eingetragene Gosse werden übersprungen,
+ * damit ein halb erfasster Abend den Titel nicht verschwinden lässt.
+ */
+export async function amtierenderGossenjunge(alle: Spieltag[], namen: Map<string, string>) {
+  const kandidaten = alle.filter((t) => t.datum <= heuteIso() && t.gossen_erfasst).slice(0, 12);
+  const erg = await ergebnisse(kandidaten.map((t) => t.id));
+  for (const tag of kandidaten) {
+    const gj = gossenjungenVon(tag, erg, namen);
+    if (gj.anzahl > 0) {
+      const ids = erg.filter((e) => e.spieltag_id === tag.id && e.gossen === gj.anzahl).map((e) => e.profil_id);
+      return { tag, namen: gj.namen, anzahl: gj.anzahl, ids };
+    }
+  }
+  return null;
 }
 
 /** Wer an einem Spieltag die meisten Gossen hatte. Leere Liste, wenn nicht gezählt. */

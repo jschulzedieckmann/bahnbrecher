@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { anzeigename, mitgliedPflicht } from "@/lib/auth";
-import { auswertung, ergebnisse, gossenjungenVon, letzterGewerteterSpieltag, mitglieder, namensKarte, spieltage } from "@/lib/daten";
+import { amtierenderGossenjunge, auswertung, ergebnisse, mitglieder, namensKarte, spieltage } from "@/lib/daten";
 import { heuteIso, monatJahr } from "@/lib/format";
 import { Seitenkopf } from "@/components/bausteine";
 import styles from "./mitglieder.module.css";
@@ -14,13 +14,10 @@ export default async function Mitglieder() {
   const jahr = Number(heuteIso().slice(0, 4));
   const [leute, tageJahr, alleTage] = await Promise.all([mitglieder(false), spieltage(jahr), spieltage()]);
   const aktive = leute.filter((m) => m.aktiv);
-  const letzter = await letzterGewerteterSpieltag(alleTage);
-  const erg = await ergebnisse([...new Set([...tageJahr.map((t) => t.id), ...(letzter ? [letzter.id] : [])])]);
-  const zeilen = new Map(auswertung(tageJahr, erg.filter((e) => tageJahr.some((t) => t.id === e.spieltag_id)), leute).map((z) => [z.profil_id, z]));
-  const gj = letzter ? gossenjungenVon(letzter, erg, namensKarte(leute)) : null;
-  const gossenjungenIds = new Set(
-    letzter && gj && gj.anzahl > 0 ? erg.filter((e) => e.spieltag_id === letzter.id && e.gossen === gj.anzahl).map((e) => e.profil_id) : [],
-  );
+  const erg = await ergebnisse(tageJahr.map((t) => t.id));
+  const zeilen = new Map(auswertung(tageJahr, erg, leute).map((z) => [z.profil_id, z]));
+  const gj = await amtierenderGossenjunge(alleTage, namensKarte(leute));
+  const gossenjungenIds = new Set(gj?.ids ?? []);
 
   return (
     <>
