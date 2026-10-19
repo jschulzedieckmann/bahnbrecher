@@ -104,7 +104,7 @@ export default async function Spieltage({ searchParams }: { searchParams: Promis
                     <strong className="zahl">{eigene.length}</strong>
                   </span>
                   <span className={styles.messung}>
-                    <span>Gossenjunge</span>
+                    <span>Meiste Gossen</span>
                     {t.gossen_erfasst ? (
                       <>
                         <span className={`${styles.spur} ${styles.spurRot}`}><span style={{ width: `${(gj.anzahl / maxGossen) * 100}%` }} /></span>
@@ -115,7 +115,7 @@ export default async function Spieltage({ searchParams }: { searchParams: Promis
                     )}
                   </span>
                   <span className={styles.fuss}>
-                    {gj.namen.length > 0 ? namenListe(gj.namen) : "kein Gossenjunge"} · {siege} {siege === 1 ? "Sieg" : "Siege"} verteilt
+                    {gj.namen.length > 0 ? `Meiste Gossen: ${namenListe(gj.namen)}` : "keine Gossen"} · {siege} {siege === 1 ? "Sieg" : "Siege"} verteilt
                   </span>
                 </Link>
               </li>

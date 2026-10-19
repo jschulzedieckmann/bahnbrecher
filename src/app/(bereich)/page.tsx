@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { darfErfassen, mitgliedPflicht } from "@/lib/auth";
 import {
-  amtierenderGossenjunge, auswertung, ergebnisse, gossenjungenVon, letzterGewerteterSpieltag, mitglieder, namensKarte, naechsterSpieltag, spieltage, termine,
+  auswertung, ergebnisse, gossenjungenVon, jahresSpitze, letzterGewerteterSpieltag, mitglieder, namensKarte, naechsterSpieltag, spieltage, termine,
   type Spieltag,
 } from "@/lib/daten";
 import {
@@ -30,10 +30,12 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
 
   // Termine sind nur noch für alles neben dem Kegeln da, etwa Ausflüge.
   const weitereTermine = kommende.filter((t) => t.art !== "kegelabend").slice(0, 3);
-  const gj = await amtierenderGossenjunge(alleTage, namen);
   const gjLetzter = letzter ? gossenjungenVon(letzter, erg, namen) : null;
   const jahrErg = erg.filter((e) => tageJahr.some((t) => t.id === e.spieltag_id));
   const zeilen = auswertung(tageJahr, jahrErg, leute);
+  // Gossenjunge ist ein Jahrestitel: die meisten Gossen im laufenden Jahr.
+  const gj = jahresSpitze(zeilen, "gossen");
+  const gespielt = tageJahr.filter((t) => jahrErg.some((e) => e.spieltag_id === t.id)).length;
   const letzteErg = letzter ? erg.filter((e) => e.spieltag_id === letzter.id) : [];
   const meisteSiege = letzteErg.reduce((m, e) => Math.max(m, e.siege), 0);
 
@@ -90,7 +92,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
 
         <div className={styles.spalte}>
           <div className={styles.platzGossen}>
-            <Banderole titel={gj && gj.namen.length > 1 ? "Amtierende Gossenjungen" : "Amtierender Gossenjunge"} id="gossenjunge">
+            <Banderole titel={`${gj && gj.namen.length > 1 ? "Gossenjungen" : "Gossenjunge"} ${jahr}`} id="gossenjunge">
               <div className="blatt-inhalt">
                 {gj ? (
                   <>
@@ -100,12 +102,12 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
                     </p>
                     <p className={styles.notiz}>
                       {gj.namen.length > 1 ? "Teilen sich den Titel. " : ""}
-                      Gossen am {datumKurz(gj.tag.datum)} Der Titel gilt bis zum nächsten Kegelabend.
+                      Die meisten Gossen in {jahr}, Stand nach {gespielt} {gespielt === 1 ? "Spieltag" : "Spieltagen"}.
                     </p>
                   </>
                 ) : (
                   <p className={styles.notiz}>
-                    Noch kein Gossenjunge. Der Titel wird nach dem ersten Spieltag mit Gossen vergeben.
+                    Noch kein Gossenjunge in {jahr}. Den Titel bekommt, wer im Jahr die meisten Gossen wirft.
                   </p>
                 )}
               </div>

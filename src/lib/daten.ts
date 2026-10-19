@@ -133,22 +133,12 @@ export async function letzterGewerteterSpieltag(alle: Spieltag[]): Promise<Spiel
   return kandidaten.find((t) => erg.some((e) => e.spieltag_id === t.id));
 }
 
-/**
- * Der amtierende Gossenjunge: wer am jüngsten Abend mit gezählten Gossen die meisten hatte.
- * Offene Abende zählen mit. Abende ohne eine einzige eingetragene Gosse werden übersprungen,
- * damit ein halb erfasster Abend den Titel nicht verschwinden lässt.
- */
-export async function amtierenderGossenjunge(alle: Spieltag[], namen: Map<string, string>) {
-  const kandidaten = alle.filter((t) => t.datum <= heuteIso() && t.gossen_erfasst).slice(0, 12);
-  const erg = await ergebnisse(kandidaten.map((t) => t.id));
-  for (const tag of kandidaten) {
-    const gj = gossenjungenVon(tag, erg, namen);
-    if (gj.anzahl > 0) {
-      const ids = erg.filter((e) => e.spieltag_id === tag.id && e.gossen === gj.anzahl).map((e) => e.profil_id);
-      return { tag, namen: gj.namen, anzahl: gj.anzahl, ids };
-    }
-  }
-  return null;
+/** Wer in einem Wert über das ganze Jahr vorn liegt, z. B. Gossenjunge (Gossen) oder Kegelkönig (Siege). Gleichstand teilt den Titel. */
+export function jahresSpitze(zeilen: Zeile[], wert: Wert) {
+  const max = Math.max(0, ...zeilen.map((z) => z[wert]));
+  if (max === 0) return null;
+  const spitze = zeilen.filter((z) => z[wert] === max).sort((a, b) => a.name.localeCompare(b.name, "de"));
+  return { namen: spitze.map((z) => z.name), ids: spitze.map((z) => z.profil_id), anzahl: max };
 }
 
 /** Wer an einem Spieltag die meisten Gossen hatte. Leere Liste, wenn nicht gezählt. */
@@ -172,7 +162,6 @@ export type Zeile = {
   kranz: number;
   gossen: number;
   pudel: number;
-  gossenjunge: number;
 };
 
 /** Summen pro Mitglied über die gegebenen Spieltage. */
@@ -183,19 +172,11 @@ export function auswertung(tage: Spieltag[], erg: Ergebnis[], leute: MitgliedKur
     const z = zeilen.get(e.profil_id) ?? {
       profil_id: e.profil_id,
       name: namen.get(e.profil_id) ?? "?",
-      dabei: 0, siege: 0, alle_neune: 0, kranz: 0, gossen: 0, pudel: 0, gossenjunge: 0,
+      dabei: 0, siege: 0, alle_neune: 0, kranz: 0, gossen: 0, pudel: 0,
     };
     z.dabei += 1;
     for (const w of WERTE) z[w] += e[w];
     zeilen.set(e.profil_id, z);
-  }
-  for (const tag of tage) {
-    const gj = gossenjungenVon(tag, erg, namen);
-    if (gj.anzahl === 0) continue;
-    for (const e of erg.filter((x) => x.spieltag_id === tag.id && x.gossen === gj.anzahl)) {
-      const z = zeilen.get(e.profil_id);
-      if (z) z.gossenjunge += 1;
-    }
   }
   return [...zeilen.values()];
 }

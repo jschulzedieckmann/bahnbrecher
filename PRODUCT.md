@@ -45,7 +45,7 @@ Bestätigt:
 - **Spieltage im Mittelpunkt:** Der nächste Kegelabend wird als Spieltag geplant (Datum, Uhrzeit, Ort, Notiz) und steht immer im Plakat der Startseite. Am Abend selbst werden dort die Ergebnisse erfasst. Planen dürfen Admin und Schriftführer.
 - **Termine** sind zweitrangig und nur für alles neben dem Kegeln da (Ausflüge, Sonstiges). Sie erscheinen auf der Startseite nur, wenn einer ansteht. Angelegt werden sie vom Admin.
 - **Spieltage und Statistik:** pro Spieltag und Mitglied werden Gossen, alle Neune, Kranzwürfe, Pudel und Siege festgehalten. Einheitlicher Begriff ist „Gosse“, nicht „Gasse“.
-- **Titel:** Wer an einem Abend die meisten Gossen wirft, ist „Gossenjunge“, bis zum nächsten Kegelabend. **Kegelkönig oder Kegelkönigin des Jahres** ist, wer im Jahr die meisten Siege hat. Auswertung pro Spieltag und pro Jahr. Eintragen dürfen Admin und Schriftführer.
+- **Titel:** Gossenjunge ist, wer im laufenden Jahr die meisten Gossen geworfen hat (geändert am 2026-10-19, vorher pro Abend). **Kegelkönig oder Kegelkönigin des Jahres** ist, wer im Jahr die meisten Siege hat. Auswertung pro Spieltag und pro Jahr. Eintragen dürfen Admin und Schriftführer.
 - **Mitgliederübersicht.**
 - **Satzung:** im Mitgliederbereich lesbar (`inhalte/satzung.md`).
 - **Beitrag:** Seite mit Monatsbeitrag (8 € laut § 4) und Bankverbindung für die Überweisung. Empfänger, IBAN und Verwendungszweck pflegt der Admin in der App. Sie stehen nicht im Code und nicht in Projektdateien, weil die Bankdaten nur im geschützten Mitgliederbereich erscheinen sollen. Die eigentliche Kassenführung kommt später.

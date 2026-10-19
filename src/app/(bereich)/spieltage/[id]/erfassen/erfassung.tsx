@@ -122,7 +122,7 @@ export function Erfassung({
         if (abschliessen) {
           const namen = dabeiPersonen.filter((p) => maxGossen > 0 && entwurf.zahlen[p.id]?.gossen === maxGossen).map((p) => p.name);
           router.push(`/spieltage/${spieltagId}`);
-          setMeldung({ art: "ok", text: namen.length ? `Spieltag gespeichert. Gossenjunge: ${namen.join(" und ")}.` : "Spieltag gespeichert." });
+          setMeldung({ art: "ok", text: namen.length ? `Spieltag gespeichert. Meiste Gossen heute: ${namen.join(" und ")}.` : "Spieltag gespeichert." });
         } else {
           setMeldung({ art: "ok", text: "Gespeichert." });
           router.refresh();
@@ -207,7 +207,7 @@ export function Erfassung({
                 <li key={p.id} className={`blatt ${styles.zeile}`}>
                   <h3 className={styles.zeilenName}>
                     {p.name}
-                    {gossenjunge && <span className={styles.titel}>Gossenjunge</span>}
+                    {gossenjunge && <span className={styles.titel}>Meiste Gossen</span>}
                   </h3>
                   <div className={styles.zaehlerReihe}>
                     {sichtbareWerte.map((w) => (
@@ -234,7 +234,7 @@ export function Erfassung({
 
           {abschlussFrage ? (
             <div className="blatt blatt-inhalt" role="alertdialog" aria-label="Spieltag abschließen" style={{ display: "grid", gap: 12 }}>
-              <p style={{ fontWeight: 700 }}>Spieltag abschließen? Danach steht der Gossenjunge fest. Ändern kannst du die Zahlen trotzdem noch.</p>
+              <p style={{ fontWeight: 700 }}>Spieltag abschließen? Ändern kannst du die Zahlen trotzdem noch.</p>
               <div className="knopfreihe">
                 <button type="button" className="knopf" onClick={() => speichern(true)} disabled={laeuft}>Abschließen</button>
                 <button type="button" className="knopf knopf--hell" onClick={() => setAbschlussFrage(false)}>Weiter erfassen</button>

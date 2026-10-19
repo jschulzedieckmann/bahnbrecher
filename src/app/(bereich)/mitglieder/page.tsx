@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { anzeigename, mitgliedPflicht } from "@/lib/auth";
-import { amtierenderGossenjunge, auswertung, ergebnisse, mitglieder, namensKarte, spieltage } from "@/lib/daten";
+import { auswertung, ergebnisse, jahresSpitze, mitglieder, spieltage } from "@/lib/daten";
 import { heuteIso, monatJahr } from "@/lib/format";
 import { Seitenkopf } from "@/components/bausteine";
 import styles from "./mitglieder.module.css";
@@ -12,11 +12,12 @@ const ROLLE = { admin: "Admin", schriftfuehrer: "Schriftführer", mitglied: null
 export default async function Mitglieder() {
   const profil = await mitgliedPflicht();
   const jahr = Number(heuteIso().slice(0, 4));
-  const [leute, tageJahr, alleTage] = await Promise.all([mitglieder(false), spieltage(jahr), spieltage()]);
+  const [leute, tageJahr] = await Promise.all([mitglieder(false), spieltage(jahr)]);
   const aktive = leute.filter((m) => m.aktiv);
   const erg = await ergebnisse(tageJahr.map((t) => t.id));
-  const zeilen = new Map(auswertung(tageJahr, erg, leute).map((z) => [z.profil_id, z]));
-  const gj = await amtierenderGossenjunge(alleTage, namensKarte(leute));
+  const liste = auswertung(tageJahr, erg, leute);
+  const zeilen = new Map(liste.map((z) => [z.profil_id, z]));
+  const gj = jahresSpitze(liste, "gossen");
   const gossenjungenIds = new Set(gj?.ids ?? []);
 
   return (

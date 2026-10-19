@@ -14,7 +14,6 @@ export const metadata: Metadata = { title: "Statistik" };
 const SPALTEN: { key: keyof Zeile; name: string }[] = [
   { key: "dabei", name: "dabei" },
   ...WERTE.map((w) => ({ key: w as keyof Zeile, name: WERT_NAME[w] })),
-  { key: "gossenjunge", name: "Gossenjunge" },
 ];
 
 export default async function Statistik({ searchParams }: { searchParams: Promise<{ jahr?: string; spieler?: string; sort?: string }> }) {
@@ -61,7 +60,7 @@ export default async function Statistik({ searchParams }: { searchParams: Promis
             </div>
             <dl className={styles.eckdaten}>
               <div><dt>Meiste alle Neune</dt><dd>{neune.namen.length ? <>{namenListe(neune.namen)} <span className="zahl">({neune.max})</span></> : "noch keine"}</dd></div>
-              <div><dt>Meiste Gossen</dt><dd>{gossen.namen.length ? <>{namenListe(gossen.namen)} <span className="zahl">({gossen.max})</span></> : "noch keine"}</dd></div>
+              <div><dt>Gossenjunge {jahr}</dt><dd>{gossen.namen.length ? <>{namenListe(gossen.namen)} <span className="zahl">({gossen.max})</span></> : "noch keine"}</dd></div>
               <div><dt>Spieltage</dt><dd className="zahl">{tage.length}</dd></div>
             </dl>
           </section>

@@ -108,18 +108,18 @@ Stempel: noch {n} Tage (bzw. „Heute!“ / „Morgen“)
 Text: Der nächste Kegelabend steht noch nicht fest. Laut Satzung legen wir ihn gemeinsam fest.
 Buttons: Spieltag planen (Schriftführer und Admins) · Zu den Spieltagen
 
-### Block „Gossenjunge“
+### Block „Gossenjunge {Jahr}“
 
-**Kleine Überschrift:** Amtierender Gossenjunge
+Jahrestitel wie der Kegelkönig: Gossenjunge ist, wer im laufenden Jahr die meisten Gossen geworfen hat.
 
-**Inhalt:** {Name}
-{n} Gossen am {Datum}. Der Titel gilt bis zum nächsten Kegelabend.
+**Überschrift:** Gossenjunge {Jahr} (bei Gleichstand: Gossenjungen {Jahr})
 
-**Bei Gleichstand:** {Name} und {Name} teilen sich den Titel. Je {n} Gossen am {Datum}.
+**Inhalt:** {Name} · {n}
+Die meisten Gossen in {Jahr}, Stand nach {k} Spieltagen.
 
-**Regel:** Maßgeblich ist der jüngste Abend, an dem Gossen gezählt und mindestens eine eingetragen wurde, auch wenn er noch offen ist.
+**Bei Gleichstand:** {Name} und {Name} · je {n}. Teilen sich den Titel.
 
-**Wenn noch keine Gossen erfasst sind:** Noch kein Gossenjunge. Der Titel wird nach dem ersten Spieltag mit Gossen vergeben.
+**Wenn noch keine Gossen erfasst sind:** Noch kein Gossenjunge in {Jahr}. Den Titel bekommt, wer im Jahr die meisten Gossen wirft.
 
 ### Block „Kegelkönig {Jahr}“
 
@@ -240,7 +240,7 @@ Buttons: Ergebnisse erfassen (nur am Abend selbst) · Ändern
 
 **Bestätigung (Startseite):** Spieltag gespeichert.
 
-**Listenzeile:** {Datum} · {n} dabei · Gossenjunge: {Name}
+**Listenzeile:** {Datum} · {n} dabei · Meiste Gossen: {Name}
 
 **Wenn an einem Spieltag keine Gossen erfasst wurden:** Gossen nicht erfasst
 

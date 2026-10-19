@@ -27,7 +27,7 @@ export default async function SpieltagSeite({ params }: { params: Promise<{ id: 
     <>
       <Seitenkopf
         titel={`Spieltag vom ${datumMitJahr(tag.datum)}`}
-        text={<>{erg.length} Bahnbrecher dabei{gj.namen.length > 0 && <> · Gossenjunge: {namenListe(gj.namen)}</>}</>}
+        text={<>{erg.length} Bahnbrecher dabei{gj.namen.length > 0 && <> · Meiste Gossen: {namenListe(gj.namen)}</>}</>}
         aktion={darfErfassen(profil) && (
           <>
             <Link href={`/spieltage/${tag.id}/erfassen`} className="knopf">{erg.length ? "Ergebnisse bearbeiten" : "Ergebnisse erfassen"}</Link>
