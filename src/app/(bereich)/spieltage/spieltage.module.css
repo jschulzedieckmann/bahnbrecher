@@ -89,3 +89,18 @@
   color: var(--ink-weich);
   font-size: 14px;
 }
+
+.geplant {
+  border-color: var(--ink);
+}
+
+.geplantFrist {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.geplantDatum {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.15;
+}

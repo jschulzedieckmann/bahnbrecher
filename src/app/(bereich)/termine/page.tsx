@@ -22,7 +22,7 @@ export default async function TerminSeite({ searchParams }: { searchParams: Prom
     <>
       <Seitenkopf
         titel="Termine"
-        text="Kegelabende, Ausflüge und alles, was sonst ansteht."
+        text="Ausflüge und alles, was neben dem Kegeln ansteht. Kegelabende stehen unter Spieltage."
         aktion={istAdmin && (
           <Link href="/termine/neu" className="knopf"><Plus size={18} strokeWidth={3} aria-hidden /> Termin anlegen</Link>
         )}
@@ -39,7 +39,7 @@ export default async function TerminSeite({ searchParams }: { searchParams: Prom
         <p className="leer blatt">
           {vergangen
             ? "Noch keine vergangenen Termine."
-            : "Gerade steht nichts im Kalender. Sobald der Admin einen Termin anlegt, taucht er hier auf."}
+            : "Gerade steht nichts an. Sobald der Admin einen Termin anlegt, taucht er hier und auf der Startseite auf."}
         </p>
       ) : (
         <ul className={styles.liste}>

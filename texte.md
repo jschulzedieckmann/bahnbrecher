@@ -2,7 +2,7 @@
 
 Quelle für alle Texte der App. Änderungen werden hier und in der App gleichzeitig gemacht.
 
-Stand: 2026-10-18, Entwurf 2, abgenommen. Ansprache: „du“. Begriffe einheitlich: Kegelabend (der Termin), Spieltag (die Ergebnisse eines Kegelabends), Gosse, Gossenjunge, alle Neune, Kranz, Pudel, Sieg, Kegelkönig oder Kegelkönigin.
+Stand: 2026-10-19, Entwurf 3: Spieltage stehen im Mittelpunkt, Termine nur noch für alles andere. Ansprache: „du“. Begriffe einheitlich: Kegelabend (der Termin), Spieltag (die Ergebnisse eines Kegelabends), Gosse, Gossenjunge, alle Neune, Kranz, Pudel, Sieg, Kegelkönig oder Kegelkönigin.
 
 Angepasst an die Mitglieder-App: Es gibt keine Suchmaschinen-Texte, keine Meta-Beschreibung für Google und keine Faktensätze für KI-Suchen. Die App ist gesperrt (noindex).
 
@@ -19,15 +19,15 @@ Angepasst an die Mitglieder-App: Es gibt keine Suchmaschinen-Texte, keine Meta-B
 Hauptmenü, in dieser Reihenfolge:
 
 1. Start
-2. Termine
-3. Spieltage
-4. Statistik
-5. Kegelspiele
+2. Spieltage
+3. Statistik
+4. Kegelspiele (in der Tab-Leiste kurz „Spiele“)
+5. Termine
 6. Mitglieder
 7. Satzung
 8. Beitrag
 
-Am Handy: Start, Termine, Spieltage und Statistik in der unteren Leiste, der Rest unter „Mehr“.
+Am Handy: Start, Spieltage, Statistik und Spiele in der unteren Leiste, der Rest unter „Mehr“.
 
 Rechts oben bzw. unter „Mehr“: „Mein Konto“, „Abmelden“. Nur für Admins zusätzlich: „Verwaltung“.
 
@@ -91,22 +91,22 @@ Kein Zurücksetzen per E-Mail. Der Link unter dem Anmelde-Button öffnet nur die
 
 **Begrüßung:** Moin, {Vorname}!
 
-### Block „Nächster Kegelabend“
+### Block „Nächster Spieltag“ (Plakat)
 
-**Kleine Überschrift:** Nächster Kegelabend
+Zeigt immer den nächsten Spieltag ab heute, also den nächsten geplanten Kegelabend.
+
+**Überschrift:** Nächster Spieltag
 
 **Inhalt:** {Wochentag}, {Datum}
-{Uhrzeit} Uhr · {Ort}
-noch {n} Tage (bzw. „heute“ / „morgen“)
+{Uhrzeit} Uhr · {Ort} (ohne Angaben: „Ort und Uhrzeit folgen“)
+{Notiz, falls vorhanden}
+Stempel: noch {n} Tage (bzw. „Heute!“ / „Morgen“)
 
-**Button:** Zu den Terminen
+**Buttons:** Zu den Spieltagen. Für Schriftführer und Admins zusätzlich „Ändern“, am Kegelabend selbst stattdessen „Spieltag erfassen“.
 
-**Wenn kein Termin feststeht:**
-Überschrift: Noch kein Termin
+**Wenn noch kein Spieltag geplant ist:**
 Text: Der nächste Kegelabend steht noch nicht fest. Laut Satzung legen wir ihn gemeinsam fest.
-
-**Am Kegelabend selbst** (nur für Schriftführer und Admins):
-Button: Spieltag erfassen
+Buttons: Spieltag planen (Schriftführer und Admins) · Zu den Spieltagen
 
 ### Block „Gossenjunge“
 
@@ -134,11 +134,11 @@ Button: Spieltag erfassen
 
 ### Block „Weitere Termine“
 
-**Kleine Überschrift:** Danach
+**Überschrift:** Weitere Termine · Link „Alle Termine“
 
-Die nächsten zwei Termine nach dem Kegelabend, z. B. Ausflüge.
+Die nächsten drei Termine neben dem Kegeln, z. B. Ausflüge.
 
-**Wenn keine weiteren Termine:** Sonst steht gerade nichts an.
+**Wenn nichts ansteht:** Der Block erscheint gar nicht.
 
 ### Block „Letzter Spieltag“
 
@@ -155,7 +155,7 @@ Meiste Siege: {Name} ({n}) · Meiste Gossen: {Name} ({n})
 
 **Überschrift:** Termine
 
-**Text:** Kegelabende, Ausflüge und alles, was sonst ansteht.
+**Text:** Ausflüge und alles, was neben dem Kegeln ansteht. Kegelabende stehen unter Spieltage.
 
 **Reiter:** Kommende · Vergangene
 
@@ -164,9 +164,9 @@ Meiste Siege: {Name} ({n}) · Meiste Gossen: {Name} ({n})
 {Ort}
 {Notiz, falls vorhanden}
 
-**Arten:** Kegelabend · Ausflug · Sonstiges
+**Arten:** Ausflug · Sonstiges
 
-**Leer (kommende):** Gerade steht nichts im Kalender. Sobald der Admin einen Termin anlegt, taucht er hier auf.
+**Leer (kommende):** Gerade steht nichts an. Sobald der Admin einen Termin anlegt, taucht er hier und auf der Startseite auf.
 
 **Leer (vergangene):** Noch keine vergangenen Termine.
 
@@ -177,11 +177,11 @@ Meiste Siege: {Name} ({n}) · Meiste Gossen: {Name} ({n})
 **Überschrift:** Neuer Termin
 
 **Felder**
-- Art (Kegelabend, Ausflug, Sonstiges)
-- Titel (Hinweis: optional, z. B. „Kohlfahrt“. Bei Kegelabenden nicht nötig.)
+- Art (Ausflug, Sonstiges)
+- Titel (Hinweis: Z. B. „Kohlfahrt“ oder „Kegeltour nach Münster“. Kegelabende planst du unter Spieltage.)
 - Datum
 - Uhrzeit
-- Ort (Vorschlag bei Kegelabenden: Gaststätte Schwenken)
+- Ort
 - Notiz (Hinweis: optional, z. B. Treffpunkt oder was mitzubringen ist)
 
 **Buttons:** Termin speichern · Abbrechen
@@ -203,15 +203,46 @@ Buttons: Löschen · Behalten
 
 **Überschrift:** Spieltage
 
-**Text:** Alle Kegelabende mit Ergebnissen, der neueste oben.
+**Text:** Der nächste Kegelabend und alle gespielten Abende, der neueste oben.
 
 **Filter:** Jahr
+
+**Buttons (Schriftführer und Admins):** Spieltag planen (nur wenn keiner geplant ist) · Abend nachtragen
+
+### Block „Nächster Spieltag“
+
+Blauer Kopf „Nächster Spieltag“, rechts „noch {n} Tage“ bzw. „heute“.
+{Wochentag}, {Datum}
+{Uhrzeit} Uhr · {Ort} (ohne Angaben: „Ort und Uhrzeit folgen“)
+{Notiz}
+Danach geplant: {weitere geplante Abende}
+Buttons: Ergebnisse erfassen (nur am Abend selbst) · Ändern
+
+**Wenn keiner geplant ist:** Der nächste Kegelabend ist noch nicht geplant.
+
+### Spieltag planen oder ändern (Schriftführer und Admins)
+
+**Überschrift:** Spieltag planen bzw. Spieltag ändern
+
+**Text:** Der nächste Kegelabend. Am Abend selbst trägst du hier auch die Ergebnisse ein.
+
+**Felder**
+- Datum (Vorschlag: 4 Wochen nach dem letzten Spieltag, wie in § 3)
+- Uhrzeit
+- Ort (Vorschlag: Gaststätte Schwenken)
+- Notiz (Hinweis: Optional, z. B. „Wir starten eine halbe Stunde früher“.)
+
+**Buttons:** Spieltag speichern · Abbrechen
+
+**Fehler:** Für dieses Datum gibt es schon einen Spieltag.
+
+**Bestätigung (Startseite):** Spieltag gespeichert.
 
 **Listenzeile:** {Datum} · {n} dabei · Gossenjunge: {Name}
 
 **Wenn an einem Spieltag keine Gossen erfasst wurden:** Gossen nicht erfasst
 
-**Leer:** Noch keine Spieltage. Der erste wird am nächsten Kegelabend erfasst.
+**Leer:** Noch keine gespielten Abende in {Jahr}.
 
 ### Spieltag im Detail
 

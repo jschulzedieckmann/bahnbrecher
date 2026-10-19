@@ -22,8 +22,10 @@ export default async function Statistik({ searchParams }: { searchParams: Promis
   const sp = await searchParams;
   const aktuellesJahr = Number(heuteIso().slice(0, 4));
   const jahr = Number(sp.jahr) || aktuellesJahr;
-  const [jahre, tage, leute] = await Promise.all([verfuegbareJahre(), spieltage(jahr), mitglieder(false)]);
-  const erg = await ergebnisse(tage.map((t) => t.id));
+  const [jahre, alleTage, leute] = await Promise.all([verfuegbareJahre(), spieltage(jahr), mitglieder(false)]);
+  const erg = await ergebnisse(alleTage.map((t) => t.id));
+  // Nur gespielte Abende zählen, geplante ohne Ergebnisse bleiben draußen.
+  const tage = alleTage.filter((t) => erg.some((e) => e.spieltag_id === t.id) || t.datum < heuteIso());
   const zeilen = auswertung(tage, erg, leute);
   const markiert = sp.spieler ?? profil.id;
   const sortKey = (SPALTEN.find((s) => s.key === sp.sort)?.key ?? "siege") as keyof Zeile;

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { anzeigename, darfErfassen, mitgliedPflicht } from "@/lib/auth";
 import { ergebnisse, gossenjungenVon, mitglieder, namensKarte, spieltag as spieltagLaden, WERT_NAME, WERTE } from "@/lib/daten";
-import { datumMitJahr, namenListe } from "@/lib/format";
+import { datumMitJahr, heuteIso, namenListe, uhrzeit } from "@/lib/format";
 import { NichtErfasst, Seitenkopf } from "@/components/bausteine";
 import styles from "@/components/tabelle.module.css";
 
@@ -28,11 +28,20 @@ export default async function SpieltagSeite({ params }: { params: Promise<{ id: 
       <Seitenkopf
         titel={`Spieltag vom ${datumMitJahr(tag.datum)}`}
         text={<>{erg.length} Bahnbrecher dabei{gj.namen.length > 0 && <> · Gossenjunge: {namenListe(gj.namen)}</>}</>}
-        aktion={darfErfassen(profil) && <Link href={`/spieltage/${tag.id}/erfassen`} className="knopf">Spieltag bearbeiten</Link>}
+        aktion={darfErfassen(profil) && (
+          <>
+            <Link href={`/spieltage/${tag.id}/erfassen`} className="knopf">{erg.length ? "Ergebnisse bearbeiten" : "Ergebnisse erfassen"}</Link>
+            <Link href={`/spieltage/${tag.id}/planen`} className="knopf knopf--hell">Datum und Ort</Link>
+          </>
+        )}
       />
 
       {erg.length === 0 ? (
-        <p className="leer blatt">Für diesen Abend ist noch niemand eingetragen.</p>
+        <p className="leer blatt">
+          {tag.datum >= heuteIso() ? "Geplant: " : ""}
+          {[uhrzeit(tag.uhrzeit) && `${uhrzeit(tag.uhrzeit)} Uhr`, tag.ort].filter(Boolean).join(" · ") || "Ort und Uhrzeit folgen"}.
+          {" "}Ergebnisse gibt es noch keine.
+        </p>
       ) : (
         <div className={`blatt ${styles.huelle}`}>
           <table className={styles.tabelle}>

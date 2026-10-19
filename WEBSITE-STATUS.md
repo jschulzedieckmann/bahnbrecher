@@ -77,13 +77,14 @@ Jede Entscheidung der Person mit Datum, damit sie nicht erneut diskutiert wird.
 - 2026-10-19: Rechtstexte: Die Person hat entschieden, keine anzulegen (kein Impressum, kein Datenschutz-Hinweis). Hinweis auf die Informationspflicht nach Art. 13 DSGVO wurde gegeben, ein Nachrüsten ist jederzeit möglich.
 - 2026-10-19: Live: Vercel-Projekt „bahnbrecher“ über GitHub importiert, 5 Umgebungsvariablen von der Person eingetragen. Live geprüft: HTTPS, Umleitung auf /anmelden, robots und noindex, /api/wach liefert 401 ohne Schlüssel, Login mit Testzugang, alle Seiten, Abmelden, keine fremden Hosts. Der Testzugang ist gelöscht. Die Frist der Startpasswörter (7 Mitglieder) wurde neu gestartet und läuft bis 2026-10-26.
 - 2026-10-19: Phase 8 angepasst: Search Console, Bing, Profile und SEO-Nachmessung entfallen (geschlossene App). Stattdessen gibt es Betrieb, Einladung der Mitglieder und eine Nutzungsprüfung nach den ersten Kegelabenden. Supabase-Hinweis „Leaked Password Protection“ bleibt bewusst aus: nur im Pro-Tarif verfügbar und durch den internen Passwort-Zusatz ohnehin wirkungslos.
+- 2026-10-19: Umbau auf Wunsch: Spieltage stehen im Mittelpunkt. Der nächste Kegelabend wird als Spieltag geplant (neue Spalten uhrzeit, ort, notiz, Migration 0003) und steht immer im Plakat der Startseite, am Abend mit „Spieltag erfassen“. Termine gibt es nur noch für Ausflüge und Sonstiges, auf der Startseite nur sichtbar, wenn einer ansteht. Navigation: Start, Spieltage, Statistik, Spiele, Mehr (Termine unter Mehr). Statistik und Spieltage-Liste zählen nur gespielte Abende. Lokal getestet, Testdaten entfernt. Den echten geplanten Spieltag am 12.11. hat die Person angelegt, er blieb unverändert.
 - 2026-10-18: Handy-Regel: Der Schriftführer darf am Abend aufs Handy schauen.
 
 ## Offene Fragen an die Person
 
 - Julian: Bankverbindung unter Verwaltung → Beitrag eintragen.
 - Julian: Mitgliedern Link, Benutzernamen und Startpasswort schicken. Die Startpasswörter gelten bis 2026-10-26, danach unter Verwaltung → Mitglied → „Passwort zurücksetzen“ neu starten.
-- Julian: Ersten Kegelabend unter Termine anlegen.
+- Julian: Nächsten Kegelabend unter Spieltage planen (12.11. ist schon angelegt, Uhrzeit und Ort fehlen noch).
 - Wachhalte-Aufruf: Der erste Lauf ist am 2026-10-20 um 6 Uhr UTC (8 Uhr MESZ). In Vercel unter Settings → Cron Jobs prüfen (noch nicht gesehen).
 - Nutzungsprüfung nach den ersten 2 bis 3 Kegelabenden (etwa Mitte Dezember 2026): Haben sich alle angemeldet und ein eigenes Passwort gesetzt? Wird der Spieltag am Abend erfasst? Was fehlt im Alltag?
 - Mögliche Ausbaustufen: Kasse nach § 4, Fotogalerie, Zu- und Absagen für Termine, Datenschutz-Hinweis, eigene Domain, App-Symbol für den Startbildschirm (Web-App-Manifest).

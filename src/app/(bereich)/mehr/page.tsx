@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, ChevronRight, Dices, LogOut, Settings, UserRound, Users, Wallet } from "lucide-react";
+import { BookOpen, CalendarDays, ChevronRight, LogOut, Settings, UserRound, Users, Wallet } from "lucide-react";
 import { mitgliedPflicht } from "@/lib/auth";
 import { abmelden } from "@/app/(zugang)/aktionen";
 import styles from "./mehr.module.css";
@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Mehr" };
 export default async function Mehr() {
   const profil = await mitgliedPflicht();
   const seiten = [
-    { href: "/kegelspiele", name: "Kegelspiele", icon: Dices },
+    { href: "/termine", name: "Termine", icon: CalendarDays },
     { href: "/mitglieder", name: "Mitglieder", icon: Users },
     { href: "/satzung", name: "Satzung", icon: BookOpen },
     { href: "/beitrag", name: "Beitrag", icon: Wallet },

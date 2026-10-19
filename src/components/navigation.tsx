@@ -10,13 +10,13 @@ import styles from "./rahmen.module.css";
 
 const HAUPT = [
   { href: "/", name: "Start", icon: House },
-  { href: "/termine", name: "Termine", icon: CalendarDays },
   { href: "/spieltage", name: "Spieltage", icon: ListOrdered },
   { href: "/statistik", name: "Statistik", icon: ChartColumnBig },
+  { href: "/kegelspiele", name: "Spiele", icon: Dices },
 ];
 
 const WEITERE = [
-  { href: "/kegelspiele", name: "Kegelspiele", icon: Dices },
+  { href: "/termine", name: "Termine", icon: CalendarDays },
   { href: "/mitglieder", name: "Mitglieder", icon: Users },
   { href: "/satzung", name: "Satzung", icon: BookOpen },
   { href: "/beitrag", name: "Beitrag", icon: Wallet },

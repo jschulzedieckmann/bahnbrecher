@@ -42,7 +42,8 @@ Kein allgemeines Vereinsverwaltungs-Tool, sondern die eigene Seite der Bahnbrech
 Bestätigt:
 - **Nur mit Login.** Ohne Anmeldung ist nichts zu sehen. Die Seite wird für Suchmaschinen gesperrt (noindex). Es gibt keine öffentliche Werbeseite.
 - **Accounts:** Der Admin legt die Mitglieder an und sagt ihnen Bescheid. Es gibt ein gemeinsames Startpasswort, das beim ersten Login geändert werden muss. Das Passwort selbst steht nicht in Projektdateien. Vergessene Passwörter setzt nur der Admin zurück, nach persönlicher Nachfrage oder per WhatsApp. Er setzt sie auf das Startpasswort zurück. Es gibt kein Zurücksetzen per E-Mail und keinen E-Mail-Versand.
-- **Termine:** nächster Kegeltermin gut sichtbar, dazu weitere Termine wie Ausflüge. Angelegt werden sie vom Admin.
+- **Spieltage im Mittelpunkt:** Der nächste Kegelabend wird als Spieltag geplant (Datum, Uhrzeit, Ort, Notiz) und steht immer im Plakat der Startseite. Am Abend selbst werden dort die Ergebnisse erfasst. Planen dürfen Admin und Schriftführer.
+- **Termine** sind zweitrangig und nur für alles neben dem Kegeln da (Ausflüge, Sonstiges). Sie erscheinen auf der Startseite nur, wenn einer ansteht. Angelegt werden sie vom Admin.
 - **Spieltage und Statistik:** pro Spieltag und Mitglied werden Gossen, alle Neune, Kranzwürfe, Pudel und Siege festgehalten. Einheitlicher Begriff ist „Gosse“, nicht „Gasse“.
 - **Titel:** Wer an einem Abend die meisten Gossen wirft, ist „Gossenjunge“, bis zum nächsten Kegelabend. **Kegelkönig oder Kegelkönigin des Jahres** ist, wer im Jahr die meisten Siege hat. Auswertung pro Spieltag und pro Jahr. Eintragen dürfen Admin und Schriftführer.
 - **Mitgliederübersicht.**
@@ -78,7 +79,7 @@ Offen:
 
 ## Product Principles
 
-1. **Der nächste Termin zuerst.** Die häufigste Frage wird beim Öffnen sofort beantwortet.
+1. **Der nächste Spieltag zuerst.** Die häufigste Frage wird beim Öffnen sofort beantwortet.
 2. **Eintragen geht schnell, auch mit Bier in der Hand.** Die Erfassung am Kegelabend braucht wenige, große Bedienelemente und verzeiht Fehler, weil sie sich korrigieren lassen.
 3. **Die Zahlen gehören dem Club.** Statistiken sind nachvollziehbar pro Spieltag und Jahr. Nichts wird geschätzt oder erfunden.
 4. **Geschlossen und privat.** Nur Mitglieder sehen etwas. Es werden so wenige persönliche Daten wie möglich gespeichert.

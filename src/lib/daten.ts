@@ -16,10 +16,15 @@ export type Termin = {
 export type Spieltag = {
   id: string;
   datum: string;
+  uhrzeit: string | null;
+  ort: string | null;
+  notiz: string | null;
   abgeschlossen: boolean;
   gossen_erfasst: boolean;
   pudel_erfasst: boolean;
 };
+
+const SPIELTAG_FELDER = "id, datum, uhrzeit, ort, notiz, abgeschlossen, gossen_erfasst, pudel_erfasst";
 
 export type Ergebnis = {
   spieltag_id: string;
@@ -78,15 +83,28 @@ export async function mitglieder(nurAktive = true): Promise<MitgliedKurz[]> {
 
 export async function spieltage(jahr?: number): Promise<Spieltag[]> {
   const supabase = await createClient();
-  let q = supabase.from("spieltage").select("id, datum, abgeschlossen, gossen_erfasst, pudel_erfasst").order("datum", { ascending: false });
+  let q = supabase.from("spieltage").select(SPIELTAG_FELDER).order("datum", { ascending: false });
   if (jahr) q = q.gte("datum", `${jahr}-01-01`).lte("datum", `${jahr}-12-31`);
   const { data } = await q;
   return (data ?? []) as Spieltag[];
 }
 
+/** Der nächste Spieltag ab heute, ob schon mit Ergebnissen oder nur geplant. */
+export async function naechsterSpieltag(): Promise<Spieltag | null> {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("spieltage")
+    .select(SPIELTAG_FELDER)
+    .gte("datum", heuteIso())
+    .order("datum")
+    .limit(1)
+    .maybeSingle();
+  return (data as Spieltag | null) ?? null;
+}
+
 export async function spieltag(id: string): Promise<Spieltag | null> {
   const supabase = await createClient();
-  const { data } = await supabase.from("spieltage").select("id, datum, abgeschlossen, gossen_erfasst, pudel_erfasst").eq("id", id).maybeSingle();
+  const { data } = await supabase.from("spieltage").select(SPIELTAG_FELDER).eq("id", id).maybeSingle();
   return (data as Spieltag | null) ?? null;
 }
 

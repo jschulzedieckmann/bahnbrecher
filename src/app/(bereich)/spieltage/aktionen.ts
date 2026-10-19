@@ -77,3 +77,28 @@ export async function spieltagLoeschen(form: FormData) {
   revalidatePath("/", "layout");
   redirect("/spieltage");
 }
+
+/** Nächsten Kegelabend als Spieltag anlegen oder Datum, Uhrzeit, Ort und Notiz ändern. */
+export async function spieltagPlanen(_: FormStatus, form: FormData): Promise<FormStatus> {
+  await erfassenPflicht();
+  const id = String(form.get("id") ?? "");
+  const daten = {
+    datum: String(form.get("datum") ?? ""),
+    uhrzeit: String(form.get("uhrzeit") ?? "") || null,
+    ort: String(form.get("ort") ?? "").trim() || null,
+    notiz: String(form.get("notiz") ?? "").trim() || null,
+  };
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(daten.datum)) return { fehler: "Bitte wähl ein Datum." };
+
+  const supabase = await createClient();
+  const { error } = id
+    ? await supabase.from("spieltage").update(daten).eq("id", id)
+    : await supabase.from("spieltage").insert(daten);
+  if (error) {
+    return {
+      fehler: error.code === "23505" ? "Für dieses Datum gibt es schon einen Spieltag." : "Speichern hat nicht geklappt. Versuch es noch mal.",
+    };
+  }
+  revalidatePath("/", "layout");
+  redirect("/?geplant=1");
+}

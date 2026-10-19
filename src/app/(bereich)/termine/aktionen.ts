@@ -6,12 +6,12 @@ import { adminPflicht } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import type { FormStatus } from "@/app/(zugang)/aktionen";
 
-const ARTEN = ["kegelabend", "ausflug", "sonstiges"];
+const ARTEN = ["ausflug", "sonstiges"];
 
 function felder(form: FormData) {
   const art = String(form.get("art") ?? "kegelabend");
   return {
-    art: ARTEN.includes(art) ? art : "kegelabend",
+    art: ARTEN.includes(art) ? art : "ausflug",
     titel: String(form.get("titel") ?? "").trim() || null,
     datum: String(form.get("datum") ?? ""),
     uhrzeit: String(form.get("uhrzeit") ?? "") || null,

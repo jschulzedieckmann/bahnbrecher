@@ -7,7 +7,7 @@ import { terminSpeichern } from "./aktionen";
 
 export function TerminFormular({ termin, heute }: { termin?: Termin; heute: string }) {
   const [status, aktion, laeuft] = useActionState(terminSpeichern, undefined);
-  const [art, setArt] = useState(termin?.art ?? "kegelabend");
+  const [art, setArt] = useState(termin?.art === "kegelabend" ? "ausflug" : (termin?.art ?? "ausflug"));
   const [datum, setDatum] = useState(termin?.datum ?? "");
 
   return (
@@ -16,10 +16,10 @@ export function TerminFormular({ termin, heute }: { termin?: Termin; heute: stri
       <fieldset className="feld" style={{ border: 0, padding: 0, margin: 0 }}>
         <legend className="feld-name">Art</legend>
         <div className="knopfreihe">
-          {(["kegelabend", "ausflug", "sonstiges"] as const).map((a) => (
+          {(["ausflug", "sonstiges"] as const).map((a) => (
             <label key={a} className={`knopf knopf--klein ${art === a ? "" : "knopf--hell"}`}>
               <input type="radio" name="art" value={a} checked={art === a} onChange={() => setArt(a)} className="nur-bildschirmleser" />
-              {a === "kegelabend" ? "Kegelabend" : a === "ausflug" ? "Ausflug" : "Sonstiges"}
+              {a === "ausflug" ? "Ausflug" : "Sonstiges"}
             </label>
           ))}
         </div>
@@ -27,7 +27,7 @@ export function TerminFormular({ termin, heute }: { termin?: Termin; heute: stri
       <div className="feld">
         <label htmlFor="titel">Titel</label>
         <input id="titel" name="titel" className="eingabe" defaultValue={termin?.titel ?? ""} aria-describedby="titel-hinweis" />
-        <span id="titel-hinweis" className="hinweis">Optional, z. B. „Kohlfahrt“. Bei Kegelabenden nicht nötig.</span>
+        <span id="titel-hinweis" className="hinweis">Z. B. „Kohlfahrt“ oder „Kegeltour nach Münster“. Kegelabende planst du unter Spieltage.</span>
       </div>
       <div className="feld">
         <label htmlFor="datum">Datum</label>
@@ -40,7 +40,7 @@ export function TerminFormular({ termin, heute }: { termin?: Termin; heute: stri
       </div>
       <div className="feld">
         <label htmlFor="ort">Ort</label>
-        <input id="ort" name="ort" className="eingabe" defaultValue={termin?.ort ?? (art === "kegelabend" ? "Gaststätte Schwenken" : "")} key={art} />
+        <input id="ort" name="ort" className="eingabe" defaultValue={termin?.ort ?? ""} />
       </div>
       <div className="feld">
         <label htmlFor="notiz">Notiz</label>
