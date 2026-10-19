@@ -438,11 +438,10 @@ Text wörtlich aus `inhalte/satzung.md`.
 ### Kachel „Vereinskasse“ (Startseite)
 
 - Kontostand groß, daneben „Stand {Datum}“
-- Mit Sparziel: Füllbalken und „{n} % von {Ziel} für {Zweck}“, ab 100 %: „Sparziel erreicht für {Zweck}!“
 - Ohne eingetragenen Stand sehen nur Admins die Kachel: „Noch kein Kassenstand eingetragen. Das geht in der Verwaltung.“
 - Admin-Link im Kopf: Eintragen
 
-**Verwaltung → Vereinskasse:** Felder „Kontostand in €“ (Hinweis: Das heutige Datum wird als Stand gespeichert. Leer lassen blendet die Kachel aus.), „Sparziel in € (freiwillig)“ (Hinweis: Mit Sparziel zeigt die Kachel einen Füllbalken.), „Wofür sparen wir? (freiwillig)“. Erfolg: Kassenstand gespeichert. Er steht jetzt auf der Startseite.
+**Verwaltung → Vereinskasse:** Felder „Kontostand in €“ (Hinweis: Das heutige Datum wird als Stand gespeichert. Leer lassen blendet die Kachel aus.). Erfolg: Kassenstand gespeichert. Er steht jetzt auf der Startseite.
 
 Die Werte in geschweiften Klammern pflegt der Admin unter Verwaltung → Beitrag. Sie stehen bewusst nicht in dieser Datei und nicht im Code.
 

@@ -57,7 +57,7 @@ Jede Entscheidung der Person mit Datum, damit sie nicht erneut diskutiert wird.
 - 2026-10-18: Satzung geliefert und unter `inhalte/satzung.md` abgelegt. Sie wird im Mitgliederbereich angezeigt.
 - 2026-10-18: Begriff einheitlich „Gosse“ und „Gossenjunge“ statt „Gasse“, auch in der Satzung angepasst. Kegelkönig des Jahres ist, wer die meisten Siege hat.
 - 2026-10-18: Kasse nach § 4 kommt später, nicht im ersten Umfang.
-- 2026-10-19: Kachel „Vereinskasse“ auf der Startseite. Der Admin trägt Kontostand und optional ein Sparziel ein (Migration 0005).
+- 2026-10-19: Kachel „Vereinskasse“ auf der Startseite. Der Admin trägt den Kontostand ein (Migration 0005). Ein Sparziel ist auf Wunsch weggefallen, die Spalten kasse_ziel und kasse_ziel_text bleiben ungenutzt.
 - 2026-10-18: Ergebnisse von 3 vergangenen Kegelabenden übernommen (`inhalte/kegelabende.json`, Quelle `inhalte/kegelabende-quelle.md`). Sie werden in Phase 5 als Startdaten in die Datenbank geladen.
 - 2026-10-18: Phase 1 abgenommen (Markenprofil, Logo bleibt, PRODUCT.md).
 - 2026-10-18: Design-Referenzen gewählt: OLIPOP (Grundwelt: nostalgische Serifenschrift, Creme, Getränke-Charme) und Seline Analytics (Aufbau der Statistik). Notizen in `referenzen/notizen.md`.

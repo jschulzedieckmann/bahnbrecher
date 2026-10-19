@@ -209,19 +209,3 @@
 .kasseStand .notiz {
   margin-top: 0;
 }
-
-.kasseBalken {
-  margin-top: 12px;
-  height: 18px;
-  border: var(--kontur-fein) solid var(--ink);
-  border-radius: 999px;
-  background: var(--weiss);
-  overflow: hidden;
-}
-
-.kasseBalken span {
-  display: block;
-  height: 100%;
-  background: var(--gelb);
-  border-right: var(--kontur-fein) solid var(--ink);
-}

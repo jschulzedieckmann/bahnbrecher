@@ -50,7 +50,7 @@ Bestätigt:
 - **Mitgliederübersicht.**
 - **Satzung:** im Mitgliederbereich lesbar (`inhalte/satzung.md`).
 - **Beitrag:** Seite mit Monatsbeitrag (8 € laut § 4) und Bankverbindung für die Überweisung. Empfänger, IBAN und Verwendungszweck pflegt der Admin in der App. Sie stehen nicht im Code und nicht in Projektdateien, weil die Bankdaten nur im geschützten Mitgliederbereich erscheinen sollen. Die eigentliche Kassenführung kommt später.
-- **Vereinskasse auf der Startseite:** Kachel mit Kontostand, Datum und optionalem Sparziel mit Füllbalken. Den Stand trägt der Admin in der Verwaltung ein (keine Buchungen, nur der aktuelle Wert).
+- **Vereinskasse auf der Startseite:** Kachel mit dem aktuellen Kontostand und dem Datum der Eintragung. Den Stand trägt der Admin in der Verwaltung ein (keine Buchungen, nur der aktuelle Wert).
 - **Kegelspiele:** eine Sammlung von Kegelspielen mit Schwierigkeitsgrad.
 - **Anmeldung** mit Benutzername und Passwort. Es werden keine E-Mail-Adressen gespeichert.
 - **Namen** erscheinen als Vorname plus Kürzel des Nachnamens.

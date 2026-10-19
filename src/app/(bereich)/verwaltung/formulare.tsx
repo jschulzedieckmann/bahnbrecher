@@ -137,15 +137,6 @@ export function KasseFormular({ werte }: { werte: Einstellungen | null }) {
         <input id="stand" name="stand" className="eingabe" inputMode="decimal" defaultValue={betragFeld(werte?.kasse_stand)} autoComplete="off" aria-describedby="stand-hinweis" />
         <span id="stand-hinweis" className="hinweis">Das heutige Datum wird als Stand gespeichert. Leer lassen blendet die Kachel aus.</span>
       </div>
-      <div className="feld">
-        <label htmlFor="ziel">Sparziel in € (freiwillig)</label>
-        <input id="ziel" name="ziel" className="eingabe" inputMode="decimal" defaultValue={betragFeld(werte?.kasse_ziel)} autoComplete="off" aria-describedby="ziel-hinweis" />
-        <span id="ziel-hinweis" className="hinweis">Mit Sparziel zeigt die Kachel einen Füllbalken.</span>
-      </div>
-      <div className="feld">
-        <label htmlFor="ziel_text">Wofür sparen wir? (freiwillig)</label>
-        <input id="ziel_text" name="ziel_text" className="eingabe" defaultValue={werte?.kasse_ziel_text ?? ""} placeholder="zum Beispiel Kegeltour 2027" />
-      </div>
       {status?.fehler && <p className="fehler" role="alert">{status.fehler}</p>}
       {status?.ok && <p className="erfolg" role="status">{status.ok}</p>}
       <button className="knopf" type="submit" disabled={laeuft}>{laeuft ? "Kugel rollt …" : "Speichern"}</button>
