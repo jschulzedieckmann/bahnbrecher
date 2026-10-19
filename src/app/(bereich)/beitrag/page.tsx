@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { mitgliedPflicht } from "@/lib/auth";
+import { anzeigename, mitgliedPflicht } from "@/lib/auth";
 import { einstellungen } from "@/lib/daten";
+import { girocodeSvg } from "@/lib/girocode";
 import { Seitenkopf } from "@/components/bausteine";
 import { KopierKnopf } from "./kopieren";
 import styles from "./beitrag.module.css";
@@ -12,9 +13,13 @@ function ibanLesbar(iban: string) {
 }
 
 export default async function Beitrag() {
-  await mitgliedPflicht();
+  const profil = await mitgliedPflicht();
   const e = await einstellungen();
   const betrag = e?.beitrag_betrag ?? 8;
+  const zweck = [e?.beitrag_verwendungszweck, anzeigename(profil)].filter(Boolean).join(" ");
+  const qr = e?.beitrag_iban
+    ? await girocodeSvg({ name: e.beitrag_empfaenger ?? "", iban: e.beitrag_iban, betrag: Number(betrag), zweck })
+    : null;
   const betragText = Number(betrag).toLocaleString("de-DE", { minimumFractionDigits: Number.isInteger(Number(betrag)) ? 0 : 2 });
 
   return (
@@ -28,6 +33,7 @@ export default async function Beitrag() {
       <section className="blatt" aria-labelledby="ueberweisung">
         <h2 id="ueberweisung" className="banderole-kopf versal banderole-kopf--blau">Überweisung</h2>
         {e?.beitrag_iban ? (
+          <div className={styles.ueberweisung}>
           <dl className={styles.daten}>
             <dt>Empfänger</dt>
             <dd>{e.beitrag_empfaenger}</dd>
@@ -37,8 +43,18 @@ export default async function Beitrag() {
               <KopierKnopf wert={e.beitrag_iban.replace(/\s+/g, "")} />
             </dd>
             <dt>Verwendungszweck</dt>
-            <dd>{e.beitrag_verwendungszweck}</dd>
+            <dd className={styles.iban}>
+              <span>{zweck}</span>
+              <KopierKnopf wert={zweck} label="Zweck kopieren" kopiertLabel="Zweck kopiert." />
+            </dd>
           </dl>
+          {qr && (
+            <figure className={styles.qr}>
+              <div role="img" aria-label="QR-Code für die Überweisung" dangerouslySetInnerHTML={{ __html: qr }} />
+              <figcaption>Mit der Banking-App scannen</figcaption>
+            </figure>
+          )}
+          </div>
         ) : (
           <p className="leer">Die Bankverbindung fehlt noch. Frag den Admin.</p>
         )}

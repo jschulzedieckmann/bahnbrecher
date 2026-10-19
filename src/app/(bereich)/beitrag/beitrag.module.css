@@ -20,6 +20,36 @@
   max-width: 44ch;
 }
 
+.ueberweisung {
+  display: grid;
+  gap: 4px;
+}
+
+.qr {
+  margin: 0 16px 18px;
+  justify-self: center;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink-weich);
+}
+
+.qr > div {
+  width: 176px;
+  padding: 12px;
+  background: #fff;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: var(--radius-klein);
+}
+
+.qr svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .daten {
   display: grid;
   grid-template-columns: 1fr;
@@ -55,6 +85,13 @@
 }
 
 @media (min-width: 700px) {
+  .ueberweisung {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+  .qr {
+    margin: 14px 20px 14px 0;
+  }
   .daten {
     grid-template-columns: 180px 1fr;
     align-items: center;

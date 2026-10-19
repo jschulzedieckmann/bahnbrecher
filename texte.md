@@ -428,9 +428,10 @@ Text wörtlich aus `inhalte/satzung.md`.
 **Überweisung**
 - Empfänger: {Empfänger}
 - IBAN: {IBAN}, mit Button „IBAN kopieren“
-- Verwendungszweck: {Verwendungszweck}
+- Verwendungszweck: {Verwendungszweck} {Name des Mitglieds}, z. B. „Monatsbeitrag Christian L.“, mit Button „Zweck kopieren“
+- QR-Code (GiroCode) mit Empfänger, IBAN, Betrag und Zweck, Bildunterschrift: Mit der Banking-App scannen
 
-**Nach dem Kopieren:** IBAN kopiert.
+**Nach dem Kopieren:** IBAN kopiert. / Zweck kopiert.
 
 **Wenn der Admin noch keine Bankdaten eingetragen hat:** Die Bankverbindung fehlt noch. Frag den Admin.
 

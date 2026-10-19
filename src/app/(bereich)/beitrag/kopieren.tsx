@@ -3,7 +3,15 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 
-export function KopierKnopf({ wert }: { wert: string }) {
+export function KopierKnopf({
+  wert,
+  label = "IBAN kopieren",
+  kopiertLabel = "IBAN kopiert.",
+}: {
+  wert: string;
+  label?: string;
+  kopiertLabel?: string;
+}) {
   const [kopiert, setKopiert] = useState(false);
   return (
     <button
@@ -20,7 +28,7 @@ export function KopierKnopf({ wert }: { wert: string }) {
       }}
     >
       {kopiert ? <Check size={16} strokeWidth={3} aria-hidden /> : <Copy size={16} strokeWidth={2.6} aria-hidden />}
-      <span aria-live="polite">{kopiert ? "IBAN kopiert." : "IBAN kopieren"}</span>
+      <span aria-live="polite">{kopiert ? kopiertLabel : label}</span>
     </button>
   );
 }
