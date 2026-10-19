@@ -1,0 +1,44 @@
+.anzeige {
+  display: grid;
+  gap: 4px;
+  max-width: 52ch;
+}
+
+/* Im Plakat: dünne Trennlinie, Text auf Gelb */
+.plakat {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: var(--kontur-fein) solid var(--ink);
+}
+
+.plakat .klein {
+  color: var(--gelb-tief);
+}
+
+.blatt {
+  margin-top: 8px;
+}
+
+.blatt .klein {
+  color: var(--ink-weich);
+}
+
+.dabei {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.etikett {
+  font-weight: 800;
+}
+
+.klein {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ich {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}

@@ -102,3 +102,25 @@ export async function spieltagPlanen(_: FormStatus, form: FormData): Promise<For
   revalidatePath("/", "layout");
   redirect("/?geplant=1");
 }
+
+/** Zu- oder Absage eintragen. null setzt die Antwort wieder auf „offen“. */
+export async function anmeldungSetzen(
+  spieltagId: string,
+  profilId: string,
+  status: "dabei" | "abgesagt" | null,
+): Promise<{ ok: boolean }> {
+  const ich = await erfassenPflicht();
+  const supabase = await createClient();
+  const { error } = status
+    ? await supabase.from("anmeldungen").upsert({
+        spieltag_id: spieltagId,
+        profil_id: profilId,
+        status,
+        geaendert_am: new Date().toISOString(),
+        geaendert_von: ich.id,
+      })
+    : await supabase.from("anmeldungen").delete().eq("spieltag_id", spieltagId).eq("profil_id", profilId);
+  if (error) return { ok: false };
+  revalidatePath("/", "layout");
+  return { ok: true };
+}

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { darfErfassen, mitgliedPflicht } from "@/lib/auth";
-import { ergebnisse, gossenjungenVon, mitglieder, naechsterSpieltag, namensKarte, spieltage, verfuegbareJahre } from "@/lib/daten";
+import { anmeldeListe, anmeldungen, ergebnisse, gossenjungenVon, mitglieder, naechsterSpieltag, namensKarte, spieltage, verfuegbareJahre } from "@/lib/daten";
 import { datumKurz, heuteIso, namenListe, nochTage, tageBis, uhrzeit, wochentagKurz, wochentagLang } from "@/lib/format";
 import { NichtErfasst, Seitenkopf } from "@/components/bausteine";
+import { AnmeldeAnzeige } from "@/components/anmelde-anzeige";
 import { JahrWahl } from "@/components/jahr-wahl";
 import styles from "./spieltage.module.css";
 
@@ -26,6 +27,7 @@ export default async function Spieltage({ searchParams }: { searchParams: Promis
     .filter((t) => t.datum >= heute && !hatErgebnis(t.id) && t.id !== naechsterOhneErgebnis?.id)
     .sort((a, b) => a.datum.localeCompare(b.datum));
   const kannErfassen = darfErfassen(profil);
+  const anmeldeStand = naechsterOhneErgebnis ? anmeldeListe(await anmeldungen(naechsterOhneErgebnis.id), leute) : null;
   const namen = namensKarte(leute);
 
   // Alle Karten im selben Maßstab: Die Balken beziehen sich auf das Maximum des ganzen Jahres.
@@ -58,6 +60,7 @@ export default async function Spieltage({ searchParams }: { searchParams: Promis
             <p className={styles.geplantDatum}>{wochentagLang(naechsterOhneErgebnis.datum)}, {datumKurz(naechsterOhneErgebnis.datum)}</p>
             <p>{[uhrzeit(naechsterOhneErgebnis.uhrzeit) && `${uhrzeit(naechsterOhneErgebnis.uhrzeit)} Uhr`, naechsterOhneErgebnis.ort].filter(Boolean).join(" · ") || "Ort und Uhrzeit folgen"}</p>
             {naechsterOhneErgebnis.notiz && <p className="einleitung">{naechsterOhneErgebnis.notiz}</p>}
+            {anmeldeStand && <AnmeldeAnzeige liste={anmeldeStand} ichId={profil.id} ton="blatt" />}
             {spaeterGeplant.length > 0 && (
               <p className="einleitung">
                 Danach geplant:{" "}
@@ -74,6 +77,7 @@ export default async function Spieltage({ searchParams }: { searchParams: Promis
                 {tageBis(naechsterOhneErgebnis.datum) === 0 && (
                   <Link href={`/spieltage/${naechsterOhneErgebnis.id}/erfassen`} className="knopf">Ergebnisse erfassen</Link>
                 )}
+                <Link href={`/spieltage/${naechsterOhneErgebnis.id}/anmeldungen`} className="knopf knopf--hell">Anmeldungen</Link>
                 <Link href={`/spieltage/${naechsterOhneErgebnis.id}/planen`} className="knopf knopf--hell">Ändern</Link>
               </div>
             )}

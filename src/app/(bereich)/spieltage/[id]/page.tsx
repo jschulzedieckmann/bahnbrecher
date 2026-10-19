@@ -31,6 +31,7 @@ export default async function SpieltagSeite({ params }: { params: Promise<{ id: 
         aktion={darfErfassen(profil) && (
           <>
             <Link href={`/spieltage/${tag.id}/erfassen`} className="knopf">{erg.length ? "Ergebnisse bearbeiten" : "Ergebnisse erfassen"}</Link>
+            <Link href={`/spieltage/${tag.id}/anmeldungen`} className="knopf knopf--hell">Anmeldungen</Link>
             <Link href={`/spieltage/${tag.id}/planen`} className="knopf knopf--hell">Datum und Ort</Link>
           </>
         )}

@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { darfErfassen, mitgliedPflicht } from "@/lib/auth";
 import {
-  auswertung, ergebnisse, gossenjungenVon, jahresSpitze, letzterGewerteterSpieltag, mitglieder, namensKarte, naechsterSpieltag, spieltage, termine,
-  type Spieltag,
+  anmeldeListe, anmeldungen, auswertung, ergebnisse, gossenjungenVon, jahresSpitze, letzterGewerteterSpieltag, mitglieder, namensKarte, naechsterSpieltag, spieltage, termine,
+  type MitgliedKurz, type Spieltag,
 } from "@/lib/daten";
 import {
   datumKurz, datumMitJahr, heuteIso, namenListe, nochTage, tageBis, uhrzeit, wochentagKurz,
 } from "@/lib/format";
 import { Banderole, Rangliste } from "@/components/bausteine";
+import { AnmeldeAnzeige } from "@/components/anmelde-anzeige";
 import styles from "./start.module.css";
 
 const ART_NAME = { kegelabend: "Kegelabend", ausflug: "Ausflug", sonstiges: "Termin" } as const;
@@ -25,6 +26,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
     naechsterSpieltag(),
   ]);
   const letzter = await letzterGewerteterSpieltag(alleTage);
+  const anmeldeStand = naechster ? anmeldeListe(await anmeldungen(naechster.id), leute) : null;
   const erg = await ergebnisse([...new Set([...tageJahr.map((t) => t.id), ...(letzter ? [letzter.id] : [])])]);
   const namen = namensKarte(leute);
 
@@ -49,7 +51,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
       <div className={styles.raster}>
         <div className={styles.spalte}>
           <div className={styles.platzPlakat}>
-            <Plakat spieltag={naechster} kannErfassen={darfErfassen(profil)} />
+            <Plakat spieltag={naechster} kannErfassen={darfErfassen(profil)} anmeldeStand={anmeldeStand} ichId={profil.id} />
           </div>
 
           {weitereTermine.length > 0 && (
@@ -129,7 +131,12 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
   );
 }
 
-function Plakat({ spieltag, kannErfassen }: { spieltag: Spieltag | null; kannErfassen: boolean }) {
+function Plakat({ spieltag, kannErfassen, anmeldeStand, ichId }: {
+  spieltag: Spieltag | null;
+  kannErfassen: boolean;
+  anmeldeStand: { dabei: MitgliedKurz[]; abgesagt: MitgliedKurz[]; offen: MitgliedKurz[] } | null;
+  ichId: string;
+}) {
   if (!spieltag) {
     return (
       <section className={`${styles.plakat} ${styles.plakatLeer}`} aria-labelledby="naechster">
@@ -155,6 +162,7 @@ function Plakat({ spieltag, kannErfassen }: { spieltag: Spieltag | null; kannErf
         {[uhrzeit(spieltag.uhrzeit) && `${uhrzeit(spieltag.uhrzeit)} Uhr`, spieltag.ort].filter(Boolean).join(" · ") || "Ort und Uhrzeit folgen"}
       </p>
       {spieltag.notiz && <p className={styles.plakatText}>{spieltag.notiz}</p>}
+      {anmeldeStand && <AnmeldeAnzeige liste={anmeldeStand} ichId={ichId} />}
       <div className={styles.stoerer} role="img" aria-label={nochTage(spieltag.datum)}>
         {tage === 0 ? (
           <span className={styles.stoererWort}>Heute!</span>
@@ -170,6 +178,7 @@ function Plakat({ spieltag, kannErfassen }: { spieltag: Spieltag | null; kannErf
       </div>
       <div className="knopfreihe">
         {tage === 0 && kannErfassen && <Link href={`/spieltage/${spieltag.id}/erfassen`} className="knopf">Spieltag erfassen</Link>}
+        {kannErfassen && <Link href={`/spieltage/${spieltag.id}/anmeldungen`} className="knopf knopf--hell">Anmeldungen</Link>}
         {tage > 0 && kannErfassen && <Link href={`/spieltage/${spieltag.id}/planen`} className="knopf knopf--hell">Ändern</Link>}
         <Link href="/spieltage" className="knopf knopf--hell">Zu den Spieltagen</Link>
       </div>

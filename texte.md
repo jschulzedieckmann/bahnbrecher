@@ -102,7 +102,14 @@ Zeigt immer den nächsten Spieltag ab heute, also den nächsten geplanten Kegela
 {Notiz, falls vorhanden}
 Stempel: noch {n} Tage (bzw. „Heute!“ / „Morgen“)
 
-**Buttons:** Zu den Spieltagen. Für Schriftführer und Admins zusätzlich „Ändern“, am Kegelabend selbst stattdessen „Spieltag erfassen“.
+**Anmeldungen (unter Ort und Uhrzeit, nach einer dünnen Linie):**
+Dabei ({n}): {Namen}
+Abgesagt: {Namen} (nur wenn jemand abgesagt hat)
+Noch offen: {Namen} (nur wenn jemand fehlt)
+Der eigene Name ist unterstrichen.
+Ohne Antworten: Noch keine Anmeldungen.
+
+**Buttons:** Zu den Spieltagen. Für Schriftführer und Admins zusätzlich „Anmeldungen“ und „Ändern“, am Kegelabend selbst statt „Ändern“ der Knopf „Spieltag erfassen“.
 
 **Wenn noch kein Spieltag geplant ist:**
 Text: Der nächste Kegelabend steht noch nicht fest. Laut Satzung legen wir ihn gemeinsam fest.
@@ -218,7 +225,8 @@ Blauer Kopf „Nächster Spieltag“, rechts „noch {n} Tage“ bzw. „heute�
 {Uhrzeit} Uhr · {Ort} (ohne Angaben: „Ort und Uhrzeit folgen“)
 {Notiz}
 Danach geplant: {weitere geplante Abende}
-Buttons: Ergebnisse erfassen (nur am Abend selbst) · Ändern
+Anmeldungen wie im Plakat der Startseite (Dabei, Abgesagt, Noch offen).
+Buttons: Ergebnisse erfassen (nur am Abend selbst) · Anmeldungen · Ändern
 
 **Wenn keiner geplant ist:** Der nächste Kegelabend ist noch nicht geplant.
 
@@ -285,6 +293,26 @@ Buttons: Abschließen · Weiter erfassen
 - Wähl mindestens eine Person aus.
 - Speichern hat nicht geklappt. Deine Eingaben sind noch da. Versuch es noch mal.
 - Keine Verbindung. Wir speichern, sobald du wieder online bist.
+
+---
+
+### Anmeldungen eintragen (Schriftführer und Admins)
+
+Die Zu- und Absagen kommen per WhatsApp. Eingetragen werden sie hier, die Mitglieder melden sich nicht selbst an.
+
+**Überschrift:** Anmeldungen
+
+**Text:** {Wochentag}, {Datum}. Trag ein, wer per WhatsApp zu- oder abgesagt hat. Jeder Tipp wird sofort gespeichert.
+
+**Zusammenfassung:** {n} dabei · {n} abgesagt · {n} offen
+
+**Pro Mitglied:** Name, darunter der Umschalter Dabei · Abgesagt · Offen
+
+**Fehler:** Speichern hat nicht geklappt. Versuch es noch mal. · Keine Verbindung. Versuch es gleich noch mal.
+
+**Link:** Zur Startseite
+
+**In der Erfassung am Abend:** Bei „Wer ist dabei?“ sind alle Zugesagten schon angehakt, solange für den Abend noch nichts erfasst ist.
 
 ---
 

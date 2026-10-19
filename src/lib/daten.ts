@@ -118,6 +118,25 @@ export async function ergebnisse(spieltagIds: string[]): Promise<Ergebnis[]> {
   return (data ?? []) as Ergebnis[];
 }
 
+export type Anmeldung = { profil_id: string; status: "dabei" | "abgesagt" };
+
+export async function anmeldungen(spieltagId: string): Promise<Anmeldung[]> {
+  const supabase = await createClient();
+  const { data } = await supabase.from("anmeldungen").select("profil_id, status").eq("spieltag_id", spieltagId);
+  return (data ?? []) as Anmeldung[];
+}
+
+/** Zu- und Absagen als Namenslisten. Wer nichts gemeldet hat, ist offen. Nur aktive Mitglieder. */
+export function anmeldeListe(anm: Anmeldung[], leute: MitgliedKurz[]) {
+  const status = new Map(anm.map((a) => [a.profil_id, a.status]));
+  const liste = { dabei: [] as MitgliedKurz[], abgesagt: [] as MitgliedKurz[], offen: [] as MitgliedKurz[] };
+  for (const m of leute.filter((x) => x.aktiv).sort((a, b) => anzeigename(a).localeCompare(anzeigename(b), "de"))) {
+    const st = status.get(m.id);
+    (st === "dabei" ? liste.dabei : st === "abgesagt" ? liste.abgesagt : liste.offen).push(m);
+  }
+  return liste;
+}
+
 export async function verfuegbareJahre(): Promise<number[]> {
   const supabase = await createClient();
   const { data } = await supabase.from("spieltage").select("datum").order("datum", { ascending: false });

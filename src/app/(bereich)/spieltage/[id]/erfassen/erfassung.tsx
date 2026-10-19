@@ -48,23 +48,25 @@ function useLokal(key: string) {
 }
 
 export function Erfassung({
-  spieltagId, datum, personen, vorhanden, gossenErfasst, pudelErfasst, abgeschlossen,
+  spieltagId, datum, personen, vorhanden, vorauswahl = [], gossenErfasst, pudelErfasst, abgeschlossen,
 }: {
   spieltagId: string;
   datum: string;
   personen: { id: string; name: string }[];
   vorhanden: Ergebnis[];
+  /** Zugesagte aus den Anmeldungen, nur genutzt solange noch nichts erfasst ist. */
+  vorauswahl?: string[];
   gossenErfasst: boolean;
   pudelErfasst: boolean;
   abgeschlossen: boolean;
 }) {
   const router = useRouter();
   const start: Entwurf = useMemo(() => ({
-    dabei: vorhanden.map((e) => e.profil_id),
+    dabei: vorhanden.length > 0 ? vorhanden.map((e) => e.profil_id) : vorauswahl,
     zahlen: Object.fromEntries(vorhanden.map((e) => [e.profil_id, { siege: e.siege, alle_neune: e.alle_neune, kranz: e.kranz, gossen: e.gossen, pudel: e.pudel }])),
     gossen: gossenErfasst,
     pudel: pudelErfasst,
-  }), [vorhanden, gossenErfasst, pudelErfasst]);
+  }), [vorhanden, vorauswahl, gossenErfasst, pudelErfasst]);
 
   const [entwurf, setEntwurf] = useState<Entwurf>(start);
   const [schritt, setSchritt] = useState<1 | 2>(vorhanden.length > 0 ? 2 : 1);
