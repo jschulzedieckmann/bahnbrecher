@@ -229,7 +229,7 @@
 
 .aktionen {
   position: sticky;
-  bottom: calc(var(--nav-hoehe) + 10px);
+  bottom: 10px;
   padding: 10px;
   background: var(--creme);
   border: var(--kontur) solid var(--ink);

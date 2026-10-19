@@ -1,13 +1,15 @@
 .app {
-  min-height: 100dvh;
-  overflow-x: clip;
+  /* App-Hülle: Die Seite selbst scrollt nicht, nur der Inhaltsbereich.
+     So blendet der Handy-Browser seine Adressleiste nicht ein und aus,
+     und Kopf- und Menüleiste bleiben ruhig an ihrem Platz. */
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
 }
 
 .kopf {
-  position: sticky;
-  top: 0;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -71,13 +73,22 @@
   display: grid;
   grid-template-columns: 1fr;
   min-width: 0;
+  min-height: 0;
+}
+
+.scroller {
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .inhalt {
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 18px var(--abstand-seite) calc(var(--nav-hoehe) + 28px);
+  padding: 18px var(--abstand-seite) 28px;
   display: grid;
   gap: 18px;
   align-content: start;
@@ -86,8 +97,6 @@
 
 /* Tab-Leiste am Handy */
 .tabs {
-  position: fixed;
-  inset: auto 0 0 0;
   z-index: 20;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -130,11 +139,6 @@
 @media (min-width: 900px) {
   .koerper {
     grid-template-columns: var(--rail-breite) 1fr;
-    /* Die Leiste läuft als blaue Spalte über die ganze Seitenhöhe. */
-    background: linear-gradient(to right,
-      var(--blau) 0 calc(var(--rail-breite) - var(--kontur)),
-      var(--ink) calc(var(--rail-breite) - var(--kontur)) var(--rail-breite),
-      transparent var(--rail-breite));
   }
   .tabs {
     display: none;
@@ -147,10 +151,10 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 24px;
-    position: sticky;
-    top: var(--kopf-hoehe);
-    height: calc(100dvh - var(--kopf-hoehe));
+    min-height: 0;
+    overflow-y: auto;
     padding: 20px 14px;
+    background: var(--blau);
     border-right: var(--kontur) solid var(--ink);
     color: var(--ink);
   }

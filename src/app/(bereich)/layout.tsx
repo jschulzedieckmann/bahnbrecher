@@ -17,7 +17,9 @@ export default async function BereichLayout({ children }: { children: React.Reac
       </header>
       <div className={styles.koerper}>
         <Seitenleiste istAdmin={profil.rolle === "admin"} />
-        <main className={styles.inhalt} id="inhalt">{children}</main>
+        <div className={styles.scroller}>
+          <main className={styles.inhalt} id="inhalt">{children}</main>
+        </div>
       </div>
       <TabLeiste />
     </div>
