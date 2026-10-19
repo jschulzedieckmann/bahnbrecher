@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  BookOpen, CalendarDays, ChartColumnBig, Dices, Ellipsis, House, ListOrdered,
+  BookOpen, CalendarDays, ChartColumnBig, CircleDot, Dices, Ellipsis, House, ListOrdered,
   Settings, UserRound, Users, Wallet,
 } from "lucide-react";
 import styles from "./rahmen.module.css";
@@ -16,6 +16,7 @@ const HAUPT = [
 ];
 
 const WEITERE = [
+  { href: "/kegeln", name: "Selbst kegeln", icon: CircleDot },
   { href: "/termine", name: "Termine", icon: CalendarDays },
   { href: "/mitglieder", name: "Mitglieder", icon: Users },
   { href: "/satzung", name: "Satzung", icon: BookOpen },

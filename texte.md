@@ -478,6 +478,26 @@ Buttons: Austragen · Behalten
 
 ---
 
+## 12a. Kegeln (Minispiel)
+
+Erreichbar über Mehr → „Selbst kegeln“, die Seitenleiste am PC und den Knopf „Selbst kegeln“ auf der Kegelspiele-Seite.
+
+**Überschrift:** Kegeln
+
+**Text:** Zum Üben zwischendurch. Zählt nicht in die Statistik, die Leistung ist ja nebensächlich (§ 1).
+
+**Anleitung:** Finger unten auf die Bahn setzen und Richtung Kegel wischen. Je schneller, desto mehr Schwung.
+
+**Hinweise:** Zu sanft. Wisch schwungvoll nach oben. · Setz den Finger unten an die Kugel und wisch Richtung Kegel.
+
+**Ergebnis (groß im Plakat):** {n} Holz · Alle Neune! · Kranz! (alle acht um den König, König steht) · Gosse!
+
+**Buttons:** Wurf mit Zufall · Neu aufstellen
+
+**Zahlen:** Bestwert {n} Holz (nur auf diesem Gerät gespeichert) · Letzte Würfe
+
+---
+
 ## 13. Systemtexte
 
 - **Seite nicht gefunden:** Pudel! Diese Seite gibt es nicht. Button: Zur Startseite
