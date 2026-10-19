@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "20px",
+        "files": [
+          "src/components/rahmen.module.css"
+        ],
+        "createdAt": "2026-10-19T06:26:15.312Z",
+        "reason": "Claude: Wortmarke unter 430px, in DESIGN.md Größenleiter dokumentiert (20/24/28px)"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "28px",
+        "files": [
+          "src/components/rahmen.module.css"
+        ],
+        "createdAt": "2026-10-19T06:26:15.470Z",
+        "reason": "Claude: Wortmarke ab 900px, in DESIGN.md Größenleiter dokumentiert (20/24/28px)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<title>Brauerei-Plakat</title>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Archivo:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
+<style>
+:root{--creme:#FEF7DE;--ink:#000C16;--gelb:#FED51C;--rot:#EB0620;--blau:#0F8AC7}
+*{box-sizing:border-box;margin:0}
+body{width:390px;height:844px;overflow:hidden;background:var(--creme);color:var(--ink);font-family:Archivo,sans-serif;font-variant-numeric:tabular-nums;display:flex;flex-direction:column}
+header{background:var(--blau);border-bottom:3px solid var(--ink);padding:14px 16px 12px;display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:50%;background:var(--creme);border:3px solid var(--ink);display:grid;place-items:center;font:20px Shrikhand;color:var(--rot)}
+header h1{font:22px Shrikhand;color:var(--gelb);text-shadow:2px 2px 0 var(--rot),-1px -1px 0 var(--ink),1px -1px 0 var(--ink),-1px 1px 0 var(--ink),1px 1px 0 var(--ink);letter-spacing:.01em}
+header p{font-size:14px;font-weight:700;color:var(--ink);margin-left:auto}
+main{flex:1;padding:16px;display:flex;flex-direction:column;gap:14px}
+.plakat{background:var(--gelb);border:3px solid var(--ink);border-radius:18px;padding:16px 18px 18px;position:relative}
+.plakat h2{font:800 15px Archivo;font-stretch:80%;text-transform:uppercase;letter-spacing:.06em}
+.datum{font:52px/1 Shrikhand;color:var(--gelb);margin:10px 0 6px;text-shadow:3px 3px 0 var(--rot),-2px -2px 0 var(--ink),2px -2px 0 var(--ink),-2px 2px 0 var(--ink),2px 2px 0 var(--ink),0 2px 0 var(--ink),2px 0 0 var(--ink),0 -2px 0 var(--ink),-2px 0 0 var(--ink)}
+.ort{font-weight:700;font-size:16px}
+.rest{position:absolute;right:14px;top:14px;background:var(--rot);color:#fff;border:3px solid var(--ink);border-radius:999px;width:74px;height:74px;display:grid;place-items:center;text-align:center;font:800 12px/1.1 Archivo;transform:rotate(8deg)}
+.rest b{display:block;font:30px/1 Shrikhand}
+.syn{font-size:12px;color:#3d3200;margin-top:8px}
+.band{border:3px solid var(--ink);border-radius:14px;background:#fff;overflow:hidden}
+.band h2{background:var(--rot);color:#fff;font:800 14px Archivo;font-stretch:80%;text-transform:uppercase;letter-spacing:.06em;padding:7px 14px;border-bottom:3px solid var(--ink)}
+.band .in{padding:12px 14px}
+.gj{display:flex;align-items:baseline;justify-content:space-between}
+.gj strong{font:26px Shrikhand}
+.gj span{font-weight:700;font-size:15px}
+.note{font-size:13px;margin-top:4px;color:#3a3a3a}
+.rang{list-style:none;padding:0;display:grid;gap:8px}
+.rang li{display:grid;grid-template-columns:18px 92px 1fr 34px;align-items:center;gap:8px;font-weight:700;font-size:15px}
+.bar{height:14px;border:2px solid var(--ink);border-radius:8px;background:var(--gelb)}
+.rang .n{text-align:right}
+.band.koenig h2{background:var(--blau);color:var(--ink)}
+nav{border-top:3px solid var(--ink);background:var(--creme);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 4px 22px}
+nav a{display:flex;flex-direction:column;align-items:center;gap:4px;font:700 12px Archivo;color:var(--ink);text-decoration:none}
+nav i{width:24px;height:24px;border:2.5px solid var(--ink);border-radius:7px}
+nav a.on i{background:var(--gelb)}
+</style></head><body>
+<header><div class="logo">B</div><h1>Die Bahnbrecher</h1><p>Moin, Julian!</p></header>
+<main>
+  <section class="plakat">
+    <h2>Nächster Kegelabend</h2>
+    <div class="datum">Fr, 13.11.</div>
+    <div class="ort">Gaststätte Schwenken, Lüdinghausen</div>
+    <div class="rest"><div><b>26</b>Tage</div></div>
+    <p class="syn">Datum ist ein Beispiel</p>
+  </section>
+  <section class="band">
+    <h2>Amtierende Gossenjungen</h2>
+    <div class="in"><div class="gj"><strong>Christopher &amp; Nico</strong><span>je 11</span></div>
+    <p class="note">Gossen am 25.06. Der Titel gilt bis zum nächsten Kegelabend.</p></div>
+  </section>
+  <section class="band koenig">
+    <h2>Rennen um den Kegelkönig 2026</h2>
+    <div class="in"><ol class="rang">
+      <li><span>1</span><span>Hendrik</span><div class="bar" style="width:100%"></div><span class="n">4</span></li>
+      <li><span>2</span><span>Sven</span><div class="bar" style="width:75%"></div><span class="n">3</span></li>
+      <li><span>3</span><span>Julian</span><div class="bar" style="width:50%"></div><span class="n">2</span></li>
+    </ol></div>
+  </section>
+</main>
+<nav><a class="on" href="#"><i></i>Start</a><a href="#"><i></i>Termine</a><a href="#"><i></i>Spieltage</a><a href="#"><i></i>Statistik</a><a href="#"><i></i>Mehr</a></nav>
+</body></html>

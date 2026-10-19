@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T06:25:40.390Z",
+  "title": "Design System: Die Bahnbrecher",
+  "extensions": {
+    "colorMeta": {
+      "blau": {
+        "role": "primary",
+        "displayName": "Logo-Blau",
+        "canonical": "oklch(60.295% 0.133 239.052)",
+        "tonalRamp": [
+          "oklch(15% 0.057 239.052)",
+          "oklch(26.429% 0.1 239.052)",
+          "oklch(37.857% 0.133 239.052)",
+          "oklch(49.286% 0.133 239.052)",
+          "oklch(60.714% 0.133 239.052)",
+          "oklch(72.143% 0.105 239.052)",
+          "oklch(83.571% 0.062 239.052)",
+          "oklch(95% 0.019 239.052)"
+        ]
+      },
+      "blau-tief": {
+        "role": "primary",
+        "displayName": "Tiefes Blau",
+        "canonical": "oklch(44.594% 0.099 239.913)",
+        "tonalRamp": [
+          "oklch(15% 0.042 239.913)",
+          "oklch(26.429% 0.075 239.913)",
+          "oklch(37.857% 0.099 239.913)",
+          "oklch(49.286% 0.099 239.913)",
+          "oklch(60.714% 0.099 239.913)",
+          "oklch(72.143% 0.079 239.913)",
+          "oklch(83.571% 0.047 239.913)",
+          "oklch(95% 0.014 239.913)"
+        ]
+      },
+      "gelb": {
+        "role": "secondary",
+        "displayName": "Plakatgelb",
+        "canonical": "oklch(88.232% 0.177 94.389)",
+        "tonalRamp": [
+          "oklch(15% 0.076 94.389)",
+          "oklch(26.429% 0.133 94.389)",
+          "oklch(37.857% 0.177 94.389)",
+          "oklch(49.286% 0.177 94.389)",
+          "oklch(60.714% 0.177 94.389)",
+          "oklch(72.143% 0.141 94.389)",
+          "oklch(83.571% 0.083 94.389)",
+          "oklch(95% 0.025 94.389)"
+        ]
+      },
+      "gelb-tief": {
+        "role": "secondary",
+        "displayName": "Bierbraun auf Gelb",
+        "canonical": "oklch(31.965% 0.066 95.57)",
+        "tonalRamp": [
+          "oklch(15% 0.028 95.57)",
+          "oklch(26.429% 0.05 95.57)",
+          "oklch(37.857% 0.066 95.57)",
+          "oklch(49.286% 0.066 95.57)",
+          "oklch(60.714% 0.066 95.57)",
+          "oklch(72.143% 0.052 95.57)",
+          "oklch(83.571% 0.031 95.57)",
+          "oklch(95% 0.009 95.57)"
+        ]
+      },
+      "rot": {
+        "role": "tertiary",
+        "displayName": "Signalrot",
+        "canonical": "oklch(59.283% 0.239 26.401)",
+        "tonalRamp": [
+          "oklch(15% 0.103 26.401)",
+          "oklch(26.429% 0.181 26.401)",
+          "oklch(37.857% 0.239 26.401)",
+          "oklch(49.286% 0.239 26.401)",
+          "oklch(60.714% 0.239 26.401)",
+          "oklch(72.143% 0.191 26.401)",
+          "oklch(83.571% 0.112 26.401)",
+          "oklch(95% 0.034 26.401)"
+        ]
+      },
+      "rot-tief": {
+        "role": "tertiary",
+        "displayName": "Tiefes Rot",
+        "canonical": "oklch(47.697% 0.193 25.114)",
+        "tonalRamp": [
+          "oklch(15% 0.083 25.114)",
+          "oklch(26.429% 0.146 25.114)",
+          "oklch(37.857% 0.193 25.114)",
+          "oklch(49.286% 0.193 25.114)",
+          "oklch(60.714% 0.193 25.114)",
+          "oklch(72.143% 0.154 25.114)",
+          "oklch(83.571% 0.091 25.114)",
+          "oklch(95% 0.028 25.114)"
+        ]
+      },
+      "gruen": {
+        "role": "tertiary",
+        "displayName": "Vereinsgrün",
+        "canonical": "oklch(57.772% 0.14 150.95)",
+        "tonalRamp": [
+          "oklch(15% 0.06 150.95)",
+          "oklch(26.429% 0.106 150.95)",
+          "oklch(37.857% 0.14 150.95)",
+          "oklch(49.286% 0.14 150.95)",
+          "oklch(60.714% 0.14 150.95)",
+          "oklch(72.143% 0.111 150.95)",
+          "oklch(83.571% 0.066 150.95)",
+          "oklch(95% 0.02 150.95)"
+        ]
+      },
+      "gruen-blass": {
+        "role": "tertiary",
+        "displayName": "Blassgrün",
+        "canonical": "oklch(93.357% 0.033 153.665)",
+        "tonalRamp": [
+          "oklch(15% 0.014 153.665)",
+          "oklch(26.429% 0.025 153.665)",
+          "oklch(37.857% 0.033 153.665)",
+          "oklch(49.286% 0.033 153.665)",
+          "oklch(60.714% 0.033 153.665)",
+          "oklch(72.143% 0.026 153.665)",
+          "oklch(83.571% 0.016 153.665)",
+          "oklch(95% 0.005 153.665)"
+        ]
+      },
+      "creme": {
+        "role": "neutral",
+        "displayName": "Creme",
+        "canonical": "oklch(97.504% 0.034 94.048)",
+        "tonalRamp": [
+          "oklch(15% 0.014 94.048)",
+          "oklch(26.429% 0.025 94.048)",
+          "oklch(37.857% 0.034 94.048)",
+          "oklch(49.286% 0.034 94.048)",
+          "oklch(60.714% 0.034 94.048)",
+          "oklch(72.143% 0.027 94.048)",
+          "oklch(83.571% 0.016 94.048)",
+          "oklch(95% 0.005 94.048)"
+        ]
+      },
+      "creme-tief": {
+        "role": "neutral",
+        "displayName": "Tiefes Creme",
+        "canonical": "oklch(93.895% 0.052 94.106)",
+        "tonalRamp": [
+          "oklch(15% 0.022 94.106)",
+          "oklch(26.429% 0.039 94.106)",
+          "oklch(37.857% 0.052 94.106)",
+          "oklch(49.286% 0.052 94.106)",
+          "oklch(60.714% 0.052 94.106)",
+          "oklch(72.143% 0.042 94.106)",
+          "oklch(83.571% 0.024 94.106)",
+          "oklch(95% 0.007 94.106)"
+        ]
+      },
+      "weiss": {
+        "role": "neutral",
+        "displayName": "Papierweiß",
+        "canonical": "oklch(99.366% 0.009 93.565)",
+        "tonalRamp": [
+          "oklch(15% 0.004 93.565)",
+          "oklch(26.429% 0.007 93.565)",
+          "oklch(37.857% 0.009 93.565)",
+          "oklch(49.286% 0.009 93.565)",
+          "oklch(60.714% 0.009 93.565)",
+          "oklch(72.143% 0.008 93.565)",
+          "oklch(83.571% 0.004 93.565)",
+          "oklch(95% 0.001 93.565)"
+        ]
+      },
+      "reinweiss": {
+        "role": "neutral",
+        "displayName": "Reinweiß",
+        "canonical": "oklch(100% 0 89.876)",
+        "tonalRamp": [
+          "oklch(15% 0 89.876)",
+          "oklch(26.429% 0 89.876)",
+          "oklch(37.857% 0 89.876)",
+          "oklch(49.286% 0 89.876)",
+          "oklch(60.714% 0 89.876)",
+          "oklch(72.143% 0 89.876)",
+          "oklch(83.571% 0 89.876)",
+          "oklch(95% 0 89.876)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Fast-Schwarz",
+        "canonical": "oklch(14.629% 0.032 237.196)",
+        "tonalRamp": [
+          "oklch(15% 0.014 237.196)",
+          "oklch(26.429% 0.024 237.196)",
+          "oklch(37.857% 0.032 237.196)",
+          "oklch(49.286% 0.032 237.196)",
+          "oklch(60.714% 0.032 237.196)",
+          "oklch(72.143% 0.025 237.196)",
+          "oklch(83.571% 0.015 237.196)",
+          "oklch(95% 0.005 237.196)"
+        ]
+      },
+      "ink-weich": {
+        "role": "neutral",
+        "displayName": "Weiches Grau",
+        "canonical": "oklch(36.527% 0.012 252.96)",
+        "tonalRamp": [
+          "oklch(15% 0.005 252.96)",
+          "oklch(26.429% 0.009 252.96)",
+          "oklch(37.857% 0.012 252.96)",
+          "oklch(49.286% 0.012 252.96)",
+          "oklch(60.714% 0.012 252.96)",
+          "oklch(72.143% 0.01 252.96)",
+          "oklch(83.571% 0.006 252.96)",
+          "oklch(95% 0.002 252.96)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Plakat",
+        "purpose": "Plakatdatum und „Pudel!“; gelbe Füllung, Umriss, roter Versatz."
+      },
+      "headline": {
+        "displayName": "Seitentitel",
+        "purpose": "Seitentitel in Fast-Schwarz; „Gut Holz!“ in voller Plakatschrift."
+      },
+      "title": {
+        "displayName": "Titelträger",
+        "purpose": "Namen von Gossenjunge (Tinte + roter Versatz) und Kegelkönig (gelb, Umriss, roter Versatz)."
+      },
+      "body": {
+        "displayName": "Text",
+        "purpose": "Alles Lesbare, gleich breite Ziffern."
+      },
+      "body-stark": {
+        "displayName": "Text stark",
+        "purpose": "Ort, Namen in Ranglisten und in der Erfassung."
+      },
+      "label": {
+        "displayName": "Versal",
+        "purpose": "Banderolen-Köpfe und Plakat-Überschriften, schmale Breite."
+      },
+      "tabellenkopf": {
+        "displayName": "Tabellenkopf",
+        "purpose": "Tabellenköpfe und Zählernamen."
+      },
+      "plakat-pudel": {
+        "displayName": "Pudel",
+        "purpose": "Nur „Pudel!“ auf der 404-Seite."
+      },
+      "plakat-koenig": {
+        "displayName": "Kegelkönig",
+        "purpose": "Name des Kegelkönigs im Kennzahlen-Block der Statistik."
+      },
+      "plakat-anmeldung": {
+        "displayName": "Gut Holz",
+        "purpose": "Nur „Gut Holz!“ auf der Anmeldung."
+      },
+      "stoerer-zahl": {
+        "displayName": "Störer-Zahl",
+        "purpose": "Zahl im roten Störer, Gelb mit 2px Fast-Schwarz-Versatz."
+      },
+      "wortmarke": {
+        "displayName": "Wortmarke",
+        "purpose": "„Die Bahnbrecher“ in der Kopfleiste: 20px unter 430px, 24px, 28px ab 900px."
+      },
+      "betrag": {
+        "displayName": "Betrag",
+        "purpose": "Beitragssumme im gelben Plakat, Archivo 900."
+      },
+      "titel-ui": {
+        "displayName": "Titel UI",
+        "purpose": "Spielname im Zufallsblock, Spieltage-Datum, Monogramm."
+      },
+      "karte": {
+        "displayName": "Kartentitel groß",
+        "purpose": "Kartentitel der Termine, Zählerwert in der Erfassung."
+      },
+      "zeile": {
+        "displayName": "Zeile",
+        "purpose": "Hervorgehobene Zeilen, Kartentitel, Listeneinträge."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Hinweise, Metazeilen, Bildunterschriften, kleine Knöpfe."
+      },
+      "klein": {
+        "displayName": "Klein",
+        "purpose": "Tab-Beschriftung, kleine Abzeichen, Tabellenköpfe am Handy."
+      },
+      "stoerer-klein": {
+        "displayName": "Störer klein",
+        "purpose": "Versal-Kleinzeilen im Störer; Untergrenze der Leiter."
+      }
+    },
+    "shadows": [
+      {
+        "name": "plakat-versatz",
+        "value": "0.06em 0.06em 0 var(--rot)",
+        "purpose": "Text-Versatz der Shrikhand-Plakatschrift (bei gelber Füllung zusätzlich 0.035 bis 0.045em Fast-Schwarz-Umriss). Nur Typografie."
+      },
+      {
+        "name": "stempel-versatz",
+        "value": "2px 2px 0 var(--ink)",
+        "purpose": "Text-Versatz für die Störer-Zahl."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Knopfdruck, Balken, Störer, Einblenden."
+      },
+      {
+        "name": "knopf-druck",
+        "value": "120ms scale(0.97)",
+        "purpose": "Drücken eines Knopfs."
+      },
+      {
+        "name": "farbwechsel",
+        "value": "background-color 150ms ease",
+        "purpose": "Hover von Knöpfen und Navigation."
+      },
+      {
+        "name": "balken-wachsen",
+        "value": "520ms scaleX(0.04) bis 1",
+        "purpose": "Ranglisten-Balken beim Laden."
+      },
+      {
+        "name": "stempeln",
+        "value": "600ms rotate(-12deg) scale(1.35) bis rotate(9deg), 120ms Verzögerung",
+        "purpose": "Störer erscheint wie gestempelt."
+      },
+      {
+        "name": "reduziert",
+        "value": "prefers-reduced-motion: 0.01ms",
+        "purpose": "Bewegung aus bei reduzierter Bewegung."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "klein",
+        "value": "430px"
+      },
+      {
+        "name": "tabelle",
+        "value": "600px"
+      },
+      {
+        "name": "wischhinweis",
+        "value": "700px"
+      },
+      {
+        "name": "pc",
+        "value": "900px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Knopf",
+      "kind": "button",
+      "refersTo": "knopf",
+      "description": "Standardaktion: dunkle Pille mit Kontur.",
+      "html": "<button class=\"ds-knopf\">Speichern</button>",
+      "css": ".ds-knopf{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 18px;border:3px solid var(--ink,#000c16);border-radius:999px;font:800 16px/1.1 var(--font-ui,Archivo,system-ui,sans-serif);cursor:pointer;transition:transform 120ms cubic-bezier(0.16,1,0.3,1),background-color 150ms ease;background:var(--ink,#000c16);color:var(--creme,#fef7de)}.ds-knopf:hover{background:var(--blau-tief,#075a85)}.ds-knopf:active{transform:scale(0.97)}.ds-knopf:focus-visible{outline:3px solid var(--blau,#0f8ac7);outline-offset:2px}"
+    },
+    {
+      "name": "Knopf hell",
+      "kind": "button",
+      "refersTo": "knopf-hell",
+      "description": "Zweitaktion und Abbrechen.",
+      "html": "<button class=\"ds-knopf-hell\">Abbrechen</button>",
+      "css": ".ds-knopf-hell{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 18px;border:3px solid var(--ink,#000c16);border-radius:999px;font:800 16px/1.1 var(--font-ui,Archivo,system-ui,sans-serif);cursor:pointer;transition:transform 120ms cubic-bezier(0.16,1,0.3,1),background-color 150ms ease;background:var(--weiss,#fffdf6);color:var(--ink,#000c16)}.ds-knopf-hell:hover{background:var(--gelb,#fed51c)}.ds-knopf-hell:active{transform:scale(0.97)}.ds-knopf-hell:focus-visible{outline:3px solid var(--blau,#0f8ac7);outline-offset:2px}"
+    },
+    {
+      "name": "Knopf Gefahr",
+      "kind": "button",
+      "refersTo": "knopf-gefahr",
+      "description": "Löschen nach Rückfrage an Ort und Stelle.",
+      "html": "<button class=\"ds-knopf-gefahr\">Ja, löschen</button>",
+      "css": ".ds-knopf-gefahr{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 18px;border:3px solid var(--ink,#000c16);border-radius:999px;font:800 16px/1.1 var(--font-ui,Archivo,system-ui,sans-serif);cursor:pointer;transition:transform 120ms cubic-bezier(0.16,1,0.3,1),background-color 150ms ease;background:var(--rot,#eb0620);color:#fff}.ds-knopf-gefahr:hover{background:var(--rot-tief,#b0001a)}.ds-knopf-gefahr:active{transform:scale(0.97)}.ds-knopf-gefahr:focus-visible{outline:3px solid var(--blau,#0f8ac7);outline-offset:2px}"
+    },
+    {
+      "name": "Eingabe",
+      "kind": "input",
+      "refersTo": "eingabe",
+      "description": "Textfeld mit Label und Hinweis.",
+      "html": "<label class=\"ds-feld\"><span class=\"ds-feld-name\">E-Mail</span><input class=\"ds-eingabe\" type=\"email\" placeholder=\"name@beispiel.de\"><span class=\"ds-hinweis\">Die Adresse, mit der du eingeladen wurdest.</span></label>",
+      "css": ".ds-feld{display:grid;gap:6px;font-family:var(--font-ui,Archivo,system-ui,sans-serif);color:var(--ink,#000c16)}.ds-feld-name{font-weight:700}.ds-hinweis{font-size:14px;color:var(--ink-weich,#3a3f45)}.ds-eingabe{min-height:48px;padding:10px 14px;border:2px solid var(--ink,#000c16);border-radius:9px;background:var(--weiss,#fffdf6);color:var(--ink,#000c16);font:500 16px/1.3 var(--font-ui,Archivo,system-ui,sans-serif);caret-color:var(--rot,#eb0620)}.ds-eingabe:focus-visible{outline:3px solid var(--blau,#0f8ac7);outline-offset:0}"
+    },
+    {
+      "name": "Banderole",
+      "kind": "card",
+      "refersTo": "banderole-kopf-rot",
+      "description": "Weißes Blatt mit rotem oder blauem Versal-Kopf.",
+      "html": "<section class=\"ds-blatt\"><h2 class=\"ds-banderole\">Amtierende Gossenjungen</h2><p class=\"ds-blatt-inhalt\">Teilen sich den Titel. Gossen am 25.06.</p></section><section class=\"ds-blatt\" style=\"margin-top:14px\"><h2 class=\"ds-banderole ds-banderole--blau\"><span>Danach</span><a href=\"#\">Alle Termine</a></h2><p class=\"ds-blatt-inhalt\">Sonst steht gerade nichts an.</p></section>",
+      "css": ".ds-blatt{background:var(--weiss,#fffdf6);border:3px solid var(--ink,#000c16);border-radius:14px;overflow:hidden;font-family:var(--font-ui,Archivo,system-ui,sans-serif);color:var(--ink,#000c16)}.ds-blatt-inhalt{margin:0;padding:14px 16px}.ds-banderole{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0;padding:8px 16px;border-bottom:3px solid var(--ink,#000c16);background:var(--rot,#eb0620);color:#fff;font-size:15px;font-weight:800;font-stretch:78%;text-transform:uppercase;letter-spacing:0.06em}.ds-banderole--blau{background:var(--blau,#0f8ac7);color:var(--ink,#000c16)}.ds-banderole a{color:inherit;font-size:14px;font-weight:700;text-transform:none;letter-spacing:0;text-underline-offset:3px;text-decoration-thickness:2px}.ds-banderole a:hover{text-decoration-thickness:3px}.ds-banderole a:focus-visible{outline:3px solid var(--ink,#000c16);outline-offset:2px}"
+    },
+    {
+      "name": "Plakatblock mit Störer",
+      "kind": "custom",
+      "refersTo": "plakat",
+      "description": "Nächster Kegelabend: gelbe Fläche, Datum in Plakatschrift, roter Störer.",
+      "html": "<section class=\"ds-plakat\"><h2 class=\"ds-versal\">Nächster Kegelabend</h2><p class=\"ds-datum\">Fr 07.11.</p><p class=\"ds-ort\">Kegelbahn Lüdinghausen</p><div class=\"ds-stoerer\"><span class=\"ds-stoerer-klein\">noch</span><span class=\"ds-stoerer-zahl\">5</span><span class=\"ds-stoerer-klein\">Tage</span></div></section>",
+      "css": ".ds-plakat{position:relative;display:grid;gap:8px;margin-top:16px;padding:18px 18px 20px;background:var(--gelb,#fed51c);border:3px solid var(--ink,#000c16);border-radius:18px;color:var(--ink,#000c16);font-family:var(--font-ui,Archivo,system-ui,sans-serif)}.ds-versal{margin:0;font-size:16px;font-weight:800;font-stretch:78%;text-transform:uppercase;letter-spacing:0.06em;padding-right:64px}.ds-datum{margin:2px 0;font-family:var(--font-plakat,Shrikhand,cursive);font-size:56px;line-height:1.02;color:var(--gelb,#fed51c);text-shadow:0.06em 0.06em 0 var(--rot,#eb0620),-0.035em -0.035em 0 var(--ink,#000c16),0.035em -0.035em 0 var(--ink,#000c16),-0.035em 0.035em 0 var(--ink,#000c16),0.035em 0.035em 0 var(--ink,#000c16),0 0.045em 0 var(--ink,#000c16),0.045em 0 0 var(--ink,#000c16),0 -0.045em 0 var(--ink,#000c16),-0.045em 0 0 var(--ink,#000c16)}.ds-ort{margin:0;font-weight:800;font-size:17px}.ds-stoerer{position:absolute;top:-16px;right:-8px;width:86px;height:86px;display:grid;place-content:center;justify-items:center;background:var(--rot,#eb0620);color:#fff;border:3px solid var(--ink,#000c16);border-radius:50%;transform:rotate(9deg)}.ds-stoerer-klein{font:800 11px/1 var(--font-ui,Archivo,system-ui,sans-serif);font-stretch:80%;text-transform:uppercase;letter-spacing:0.06em}.ds-stoerer-zahl{font-family:var(--font-plakat,Shrikhand,cursive);font-size:32px;line-height:1;color:var(--gelb,#fed51c);text-shadow:2px 2px 0 var(--ink,#000c16)}"
+    },
+    {
+      "name": "Rangliste",
+      "kind": "custom",
+      "refersTo": "rangliste",
+      "description": "Balken exakt proportional zum Wert, Wert rechtsbündig; gewählter Spieler hervorgehoben.",
+      "html": "<ol class=\"ds-rang\"><li><span class=\"ds-platz\">1.</span><span>Hendrik</span><span class=\"ds-spur\"><span class=\"ds-balken\" style=\"width:100%\"></span></span><span class=\"ds-wert\">4</span></li><li class=\"ds-hervor\"><span class=\"ds-platz\">2.</span><span>Sven</span><span class=\"ds-spur\"><span class=\"ds-balken\" style=\"width:75%\"></span></span><span class=\"ds-wert\">3</span></li><li><span class=\"ds-platz\">3.</span><span>Julian</span><span class=\"ds-spur\"><span class=\"ds-balken\" style=\"width:50%\"></span></span><span class=\"ds-wert\">2</span></li></ol>",
+      "css": ".ds-rang{list-style:none;margin:0;padding:12px 16px 14px;display:grid;gap:10px;font:700 16px/1.45 var(--font-ui,Archivo,system-ui,sans-serif);font-variant-numeric:tabular-nums;color:var(--ink,#000c16)}.ds-rang li{display:grid;grid-template-columns:2.1em minmax(5em,8em) minmax(60px,1fr) 2.4em;align-items:center;gap:10px;border-radius:8px}.ds-platz{color:var(--ink-weich,#3a3f45)}.ds-spur{display:block;height:16px}.ds-balken{display:block;height:100%;min-width:6px;box-sizing:border-box;background:var(--gelb,#fed51c);border:2px solid var(--ink,#000c16);border-radius:8px}.ds-wert{text-align:right;font-size:17px}.ds-hervor{background:var(--gelb,#fed51c);outline:2px solid var(--ink,#000c16);outline-offset:3px}.ds-hervor .ds-balken{background:var(--rot,#eb0620)}"
+    },
+    {
+      "name": "Zustandszeichen",
+      "kind": "chip",
+      "refersTo": "nicht-erfasst",
+      "description": "Nicht erfasst als gestricheltes ?-Kästchen, nicht dabei als Durchstreichung.",
+      "html": "<p class=\"ds-zustand\">Pudel: <span class=\"ds-nicht-erfasst\">?</span> · <span class=\"ds-nicht-dabei\">Nico</span></p>",
+      "css": ".ds-zustand{font:400 16px/1.45 var(--font-ui,Archivo,system-ui,sans-serif);color:var(--ink,#000c16)}.ds-nicht-erfasst{display:inline-grid;place-items:center;min-width:2em;padding:0 6px;border:2px dashed var(--ink-weich,#3a3f45);border-radius:6px;color:var(--ink-weich,#3a3f45);font-weight:700}.ds-nicht-dabei{text-decoration:line-through;text-decoration-thickness:2px;color:var(--ink-weich,#3a3f45)}"
+    },
+    {
+      "name": "Tab-Leiste (Handy)",
+      "kind": "nav",
+      "refersTo": "tab-aktiv",
+      "description": "Feste Tab-Leiste unten, aktive Seite als gelbe Pille.",
+      "html": "<nav class=\"ds-tabs\"><a class=\"ds-tab\" aria-current=\"page\" href=\"#\"><span class=\"ds-tab-icon\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg></span>Start</a><a class=\"ds-tab\" href=\"#\"><span class=\"ds-tab-icon\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg></span>Termine</a><a class=\"ds-tab\" href=\"#\"><span class=\"ds-tab-icon\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3v18h18\"/><path d=\"M8 17v-4M13 17V9M18 17v-7\"/></svg></span>Statistik</a></nav>",
+      "css": ".ds-tabs{display:grid;grid-template-columns:repeat(3,1fr);padding:6px 4px 8px;background:var(--creme,#fef7de);border-top:3px solid var(--ink,#000c16);font-family:var(--font-ui,Archivo,system-ui,sans-serif)}.ds-tab{display:grid;justify-items:center;gap:3px;padding:4px 0;font-weight:700;font-size:12px;text-decoration:none;color:var(--ink,#000c16)}.ds-tab-icon{display:grid;place-items:center;width:44px;height:30px;border-radius:999px;border:2px solid transparent;transition:background-color 150ms ease}.ds-tab[aria-current=\"page\"] .ds-tab-icon{background:var(--gelb,#fed51c);border-color:var(--ink,#000c16)}.ds-tab:focus-visible{outline:3px solid var(--blau,#0f8ac7);outline-offset:2px;border-radius:6px}"
+    },
+    {
+      "name": "Leiste (PC)",
+      "kind": "nav",
+      "refersTo": "rail-link-aktiv",
+      "description": "Blaue Leiste über die volle Höhe, aktive Seite als gelbe Pille.",
+      "html": "<nav class=\"ds-rail\"><a class=\"ds-rail-link\" aria-current=\"page\" href=\"#\">Start</a><a class=\"ds-rail-link\" href=\"#\">Termine</a><a class=\"ds-rail-link\" href=\"#\">Spieltage</a><a class=\"ds-rail-link\" href=\"#\">Statistik</a></nav>",
+      "css": ".ds-rail{display:grid;gap:4px;width:232px;padding:20px 14px;background:var(--blau,#0f8ac7);border-right:3px solid var(--ink,#000c16);font-family:var(--font-ui,Archivo,system-ui,sans-serif)}.ds-rail-link{display:flex;align-items:center;gap:12px;min-height:44px;padding:8px 14px;border:2px solid transparent;border-radius:999px;font-weight:700;color:var(--ink,#000c16);text-decoration:none;transition:background-color 150ms ease}.ds-rail-link:hover{background:var(--blau-tief,#075a85);color:#fff}.ds-rail-link[aria-current=\"page\"]{background:var(--gelb,#fed51c);border-color:var(--ink,#000c16);color:var(--ink,#000c16)}.ds-rail-link:focus-visible{outline:3px solid var(--blau,#0f8ac7);outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Das Brauerei-Plakat am Tresen",
+    "overview": "Die App sieht aus wie das Vereinsplakat einer Kneipe der 50er und 60er Jahre, abgeleitet aus dem Logo des Clubs: Cremegrund, fast schwarze Konturen von 3px, Logo-Blau, Gelb und Rot als satte Druckfarben. Termine und Titel stehen da, als wären sie gedruckt: das Datum des nächsten Kegelabends und die Namen der Titelträger tragen die Logo-Schrift Shrikhand mit roter Versatzkontur, alles andere ist ruhige, gut lesbare Standard-UI in Archivo.\n\nDas Plakat ist auf wenige Stellen konzentriert: Kopfleiste, PC-Leiste, Banderolen-Köpfe, der gelbe Plakatblock mit Störer und die Kontur um jede Fläche. Statistik, Tabellen, Formulare und die Spieltag-Erfassung bleiben ruhig und dicht. Die Dichte ist mittel; Handy und PC sind gleichwertig.\n\nAbgelehnt ist das Standard-Dashboard mit grauen Kacheln und einer einzigen Akzentfarbe.",
+    "keyCharacteristics": [
+      "Creme-Grund, jede Fläche mit 3px Fast-Schwarz umrandet, runde Ecken von 14 bis 18px.",
+      "Shrikhand mit Versatzkontur nur für Markenmomente; alles Übrige in Archivo.",
+      "Banderolen: weiße Blätter mit rotem oder blauem Kopf in schmalen Versalien.",
+      "Keine Box-Schatten, keine weichen Verläufe; Tiefe entsteht aus Kontur und Farbfläche.",
+      "Zustände zeigen sich in der Form, nicht nur in der Farbe."
+    ],
+    "rules": [
+      {
+        "name": "The Zwei-Köpfe Rule",
+        "body": "Banderolen-Köpfe sind rot (weißer Text) oder blau (dunkler Text). Gelbe oder schwarze Köpfe gibt es nicht; Gelb gehört dem Plakatblock und dem aktiven Zustand.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gelb-heißt-hier Rule",
+        "body": "Gelb markiert, was jetzt zählt: der nächste Termin, die aktive Seite, der eigene Name, der gewählte Spieler. Es wird nicht als Dekorfläche verteilt.",
+        "section": "colors"
+      },
+      {
+        "name": "The Markenmoment Rule",
+        "body": "Shrikhand steht nur an Markenmomenten: Wortmarke, Plakatdatum, Störer-Zahl, Titelträger, Seitentitel, „Pudel!“ und „Gut Holz!“. Kartentitel, Zahlen, Tabellen und Formulare sind Archivo.",
+        "section": "typography"
+      },
+      {
+        "name": "The Gleiche-Ziffern Rule",
+        "body": "Zahlen stehen in gleich breiten Ziffern (tabular-nums ist am body gesetzt) und in Tabellen und Ranglisten rechtsbündig.",
+        "section": "typography"
+      },
+      {
+        "name": "The Kontur-statt-Schatten Rule",
+        "body": "Tiefe kommt von der 3px-Kontur in Fast-Schwarz. Versatz gehört der Plakatschrift, nicht Flächen oder Knöpfen.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** jede Fläche mit 3px Fast-Schwarz umranden und 14 bis 18px runden.",
+      "**Do** Banderolen-Köpfe rot mit weißem Text oder blau mit dunklem Text setzen.",
+      "**Do** Shrikhand nur für Wortmarke, Plakatdatum, Störer-Zahl, Titelträger, Seitentitel, „Pudel!“ und „Gut Holz!“ verwenden.",
+      "**Do** Zustände über die Form zeigen: gestricheltes „?“-Kästchen für nicht erfasst, Durchstreichung für nicht dabei.",
+      "**Do** Ranglisten-Balken exakt proportional zum Wert zeichnen und Zahlen rechtsbündig in gleich breiten Ziffern setzen.",
+      "**Do** am PC die blaue Leiste über die volle Höhe laufen lassen, am Handy die Tab-Leiste mit gelber Aktiv-Pille zeigen."
+    ],
+    "donts": [
+      "**Don't** gelbe oder schwarze Banderolen-Köpfe bauen.",
+      "**Don't** Kartentitel, Zahlen, Tabellen oder Formulare in Shrikhand setzen.",
+      "**Don't** Plakateffekte (Versatzschrift, Störer, Drehung) in Statistik, Tabellen, Formulare oder die Erfassung tragen; dort zeigt sich das Plakat nur in Kopfleiste, Banderolen-Köpfen und Kontur.",
+      "**Don't** Kicker- oder Eyebrow-Zeilen über Überschriften setzen.",
+      "**Don't** Box-Schatten oder weiche Verläufe für Tiefe einsetzen.",
+      "**Don't** einen Zustand allein über Farbe ausdrücken."
+    ]
+  }
+}

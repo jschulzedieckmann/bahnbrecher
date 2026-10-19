@@ -1,0 +1,91 @@
+.karten {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.karte {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+  text-decoration: none;
+  height: 100%;
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), background-color 160ms ease;
+}
+
+.karte:hover {
+  background: var(--creme);
+  transform: translateY(-2px);
+}
+
+.kartenKopf {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: var(--kontur-fein) solid var(--ink);
+}
+
+.kartenKopf strong {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.offen {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 2px 10px;
+  border: var(--kontur-fein) dashed var(--ink);
+  border-radius: 999px;
+}
+
+.messung {
+  display: grid;
+  grid-template-columns: 7.5em 1fr 2.2em;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.messung strong {
+  text-align: right;
+}
+
+.spur {
+  display: block;
+  height: 14px;
+  border-radius: 8px;
+  background: var(--creme-tief);
+}
+
+.spur > span {
+  display: block;
+  height: 100%;
+  min-width: 6px;
+  border-radius: 8px;
+  background: var(--blau);
+  border: var(--kontur-fein) solid var(--ink);
+}
+
+.spurRot > span {
+  background: var(--rot);
+}
+
+.ungezaehlt {
+  grid-column: 2 / 4;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--ink-weich);
+}
+
+.fuss {
+  color: var(--ink-weich);
+  font-size: 14px;
+}

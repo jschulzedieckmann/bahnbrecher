@@ -1,0 +1,96 @@
+.kennzahlen {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--gelb);
+  border: var(--kontur) solid var(--ink);
+  border-radius: var(--radius-gross);
+}
+
+.koenig h2 {
+  font-size: 13px;
+}
+
+.koenig :global(.plakatschrift) {
+  font-size: clamp(36px, 9vw, 52px);
+  margin: 4px 0;
+}
+
+.kleiner {
+  color: var(--gelb-tief);
+  font-weight: 600;
+}
+
+/* Ruhige Eckdaten in Archivo, keine Kacheln. */
+.eckdaten {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-top: 12px;
+  border-top: var(--kontur-fein) solid var(--ink);
+}
+
+.eckdaten > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.eckdaten dt {
+  font-weight: 600;
+  color: var(--gelb-tief);
+}
+
+.eckdaten dd {
+  margin: 0;
+  font-weight: 800;
+  text-align: right;
+}
+
+.ranglisten {
+  display: grid;
+  gap: var(--abstand-block);
+}
+
+.ranglisten > * {
+  break-inside: avoid;
+}
+
+.fussnote {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px 14px;
+  font-size: 14px;
+  color: var(--ink-weich);
+}
+
+.schluss {
+  text-align: center;
+  font-weight: 800;
+  font-size: 19px;
+  color: var(--ink-weich);
+  padding: 12px 0;
+}
+
+@media (min-width: 900px) {
+  .kennzahlen {
+    grid-template-columns: 1.3fr 1fr;
+    align-items: end;
+    column-gap: 28px;
+  }
+  .eckdaten {
+    border-top: 0;
+    border-left: var(--kontur-fein) solid var(--ink);
+    padding: 0 0 0 20px;
+  }
+  /* Nach Höhe gepackt: zwei Spalten, die sich unabhängig füllen. */
+  .ranglisten {
+    display: block;
+    columns: 2;
+    column-gap: var(--abstand-block);
+  }
+  .ranglisten > * {
+    margin-bottom: var(--abstand-block);
+  }
+}

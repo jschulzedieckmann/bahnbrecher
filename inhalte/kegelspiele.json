@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Abräumen",
+    "schwierigkeit": "leicht",
+    "form": "jeder_fuer_sich",
+    "regel": "Pro Runde eine feste Zahl Würfe, gefallene Kegel bleiben liegen. Wer die Bahn mit den wenigsten Würfen leer hat, gewinnt."
+  },
+  {
+    "name": "Immer mehr",
+    "schwierigkeit": "leicht",
+    "form": "jeder_fuer_sich",
+    "regel": "Jeder muss mehr Holz werfen als sein Vorgänger, sonst bekommt er keinen Punkt."
+  },
+  {
+    "name": "Drunter und drüber",
+    "schwierigkeit": "leicht",
+    "form": "jeder_fuer_sich",
+    "regel": "Vor jedem Wurf wird angesagt, ob er über oder unter dem Ergebnis des Vorgängers landet."
+  },
+  {
+    "name": "Gerade oder ungerade",
+    "schwierigkeit": "leicht",
+    "form": "jeder_fuer_sich",
+    "regel": "Vor dem Wurf „gerade“ oder „ungerade“ ansagen. Wer richtig liegt, punktet."
+  },
+  {
+    "name": "5er raus",
+    "schwierigkeit": "leicht",
+    "form": "jeder_fuer_sich",
+    "regel": "Wer genau 5 Holz wirft, scheidet aus. Der Letzte im Spiel gewinnt."
+  },
+  {
+    "name": "Hausnummer (groß/klein)",
+    "schwierigkeit": "leicht",
+    "form": "jeder_gegen_jeden",
+    "regel": "Drei Würfe bilden eine dreistellige Zahl. Nach jedem Wurf entscheidet man, auf welche Stelle er kommt. Gewinner ist die größte Zahl, bei der kleinen Variante die kleinste."
+  },
+  {
+    "name": "Berg- und Talfahrt",
+    "schwierigkeit": "mittel",
+    "form": "jeder_fuer_sich",
+    "regel": "In der ersten Hälfte der Runden wird Holz addiert, in der zweiten abgezogen. Wer am Ende am nächsten an null ist, gewinnt."
+  },
+  {
+    "name": "1 bis 12",
+    "schwierigkeit": "mittel",
+    "form": "jeder_fuer_sich",
+    "regel": "Auf einer Tafel stehen die Zahlen 1 bis 12. Wer genau diese Holzzahl wirft, streicht sie. Wer zuerst alle gestrichen hat, gewinnt."
+  },
+  {
+    "name": "Mensch ärgere dich nicht",
+    "schwierigkeit": "mittel",
+    "form": "jeder_gegen_jeden",
+    "regel": "Holz wird aufsummiert. Wer genau den Stand eines anderen trifft, schickt ihn auf null zurück."
+  },
+  {
+    "name": "Fuchsjagd",
+    "schwierigkeit": "mittel",
+    "form": "einer_gegen_alle",
+    "regel": "Der Fuchs bekommt einen Vorsprung oder mehr Würfe, die Jäger versuchen ihn einzuholen. Die Rolle wechselt."
+  },
+  {
+    "name": "Tag und Nacht",
+    "schwierigkeit": "mittel",
+    "form": "jeder_fuer_sich",
+    "regel": "Erst Tagrunden mit normaler Wertung, danach Nachtrunden, in denen jeder Wurf doppelt zählt."
+  },
+  {
+    "name": "Bingo",
+    "schwierigkeit": "mittel",
+    "form": "jeder_fuer_sich",
+    "regel": "Jeder füllt ein 3×3-Feld mit seinen Wurfergebnissen. Wer zuerst eine Reihe voll hat, gewinnt."
+  },
+  {
+    "name": "Tannenbaum",
+    "schwierigkeit": "mittel",
+    "form": "mannschaften",
+    "regel": "Jede Mannschaft hat einen Tannenbaum aus Zahlen auf der Tafel. Wer eine Zahl trifft, streicht sie. Wer zuerst seinen Baum „gefällt“ hat, gewinnt."
+  },
+  {
+    "name": "Bundesliga",
+    "schwierigkeit": "mittel",
+    "form": "saisonspiel",
+    "regel": "Jeder Kegelabend ist ein Spieltag einer Liga mit Tabelle über das Jahr. Passt gut zur Jahresstatistik der App."
+  },
+  {
+    "name": "Kranzkegeln (20 auf Vorderkranz)",
+    "schwierigkeit": "schwer",
+    "form": "jeder_fuer_sich",
+    "regel": "Gezielt auf ein Kegelbild werfen, zum Beispiel den Kranz um den König. Nur Treffer im Bild zählen."
+  },
+  {
+    "name": "4711",
+    "schwierigkeit": "schwer",
+    "form": "jeder_fuer_sich",
+    "regel": "Mit vier Würfen gezielt die Kegel 4, 7 und 1 treffen."
+  },
+  {
+    "name": "3-3-3",
+    "schwierigkeit": "schwer",
+    "form": "jeder_fuer_sich",
+    "regel": "Je drei Würfe mit links, mit rechts und rückwärts durch die Beine. Schwer, aber vor allem lustig."
+  },
+  {
+    "name": "Fredenbaum (12er)",
+    "schwierigkeit": "schwer",
+    "form": "jeder_fuer_sich",
+    "regel": "Zwölf Runden mit je einem vorgegebenen Kegelbild und eigenen Multiplikatoren. Viele Regeln, für geübte Runden."
+  }
+]

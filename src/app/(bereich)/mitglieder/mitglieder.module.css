@@ -1,0 +1,79 @@
+.liste {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.karte {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  overflow: visible;
+}
+
+.ich {
+  background: var(--gelb);
+}
+
+.monogramm {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: var(--kontur) solid var(--ink);
+  background: var(--blau);
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--ink);
+}
+
+.text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  font-weight: 800;
+  font-size: 19px;
+}
+
+.zeile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  color: var(--ink-weich);
+  font-size: 14px;
+}
+
+.rolle {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.werte {
+  text-align: left;
+  font-size: 14px;
+}
+
+.abzeichen {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  padding: 3px 10px;
+  background: var(--rot);
+  color: #fff;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: rotate(3deg);
+}

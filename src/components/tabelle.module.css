@@ -1,0 +1,125 @@
+.huelle {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabelle {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.tabelle th,
+.tabelle td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--creme-tief);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tabelle thead th {
+  position: sticky;
+  top: 0;
+  background: var(--ink);
+  color: var(--creme);
+  font-weight: 800;
+  font-stretch: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 13px;
+  border-bottom: var(--kontur) solid var(--ink);
+}
+
+.tabelle thead th:global(.zahl),
+.tabelle td:global(.zahl) {
+  text-align: right;
+}
+
+.tabelle tbody th {
+  font-weight: 700;
+}
+
+.tabelle tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.tabelle tbody tr:hover {
+  background: var(--creme);
+}
+
+.eigene,
+.eigene:hover {
+  background: var(--gelb) !important;
+}
+
+.spitze {
+  display: inline-block;
+  min-width: 2em;
+  padding: 0 6px;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: 6px;
+  background: var(--rot);
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .tabelle {
+    font-size: 14px;
+  }
+  .tabelle thead th {
+    font-size: 12px;
+    letter-spacing: 0;
+    white-space: normal;
+    vertical-align: bottom;
+  }
+}
+
+/* Erste Spalte bleibt beim seitlichen Wischen stehen. */
+.ersteSpalteFest tbody th,
+.ersteSpalteFest thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.ersteSpalteFest tbody th {
+  background: var(--weiss);
+  box-shadow: 2px 0 0 var(--creme-tief);
+}
+
+.ersteSpalteFest tbody tr:hover th {
+  background: var(--creme);
+}
+
+.ersteSpalteFest thead th:first-child {
+  z-index: 2;
+}
+
+.wischHinweis {
+  display: none;
+  margin: 0;
+  padding: 8px 12px 0;
+  font-size: 13px;
+  color: var(--ink-weich);
+}
+
+@media (max-width: 700px) {
+  .wischHinweis {
+    display: block;
+  }
+}
+
+.sortierKnopf {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.sortierKnopf:focus-visible {
+  outline: 3px solid var(--gelb);
+  outline-offset: 2px;
+}

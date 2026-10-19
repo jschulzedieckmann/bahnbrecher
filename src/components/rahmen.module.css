@@ -1,0 +1,186 @@
+.app {
+  min-height: 100dvh;
+  overflow-x: clip;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.kopf {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: var(--kopf-hoehe);
+  padding: 10px var(--abstand-seite);
+  background: var(--blau);
+  border-bottom: var(--kontur) solid var(--ink);
+}
+
+.marke {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: var(--kontur) solid var(--ink);
+  background: var(--creme);
+  flex: none;
+}
+
+.name {
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.gruss {
+  margin-left: auto;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+@media (max-width: 430px) {
+  .kopf {
+    gap: 8px;
+  }
+  .logo {
+    width: 42px;
+    height: 42px;
+  }
+  .name {
+    font-size: 20px;
+  }
+  .gruss {
+    font-size: 14px;
+  }
+}
+
+.koerper {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-width: 0;
+}
+
+.inhalt {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px var(--abstand-seite) calc(var(--nav-hoehe) + 28px);
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  min-width: 0;
+}
+
+/* Tab-Leiste am Handy */
+.tabs {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 6px 4px calc(8px + env(safe-area-inset-bottom));
+  background: var(--creme);
+  border-top: var(--kontur) solid var(--ink);
+}
+
+.tab {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  padding: 4px 0;
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.tabIcon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 30px;
+  border-radius: 999px;
+  border: var(--kontur-fein) solid transparent;
+  transition: background-color 150ms ease;
+}
+
+.tab[aria-current="page"] .tabIcon {
+  background: var(--gelb);
+  border-color: var(--ink);
+}
+
+/* Seitenleiste am PC */
+.rail {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .koerper {
+    grid-template-columns: var(--rail-breite) 1fr;
+    /* Die Leiste läuft als blaue Spalte über die ganze Seitenhöhe. */
+    background: linear-gradient(to right,
+      var(--blau) 0 calc(var(--rail-breite) - var(--kontur)),
+      var(--ink) calc(var(--rail-breite) - var(--kontur)) var(--rail-breite),
+      transparent var(--rail-breite));
+  }
+  .tabs {
+    display: none;
+  }
+  .inhalt {
+    padding: 28px 32px 48px;
+  }
+  .rail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    position: sticky;
+    top: var(--kopf-hoehe);
+    height: calc(100dvh - var(--kopf-hoehe));
+    padding: 20px 14px;
+    border-right: var(--kontur) solid var(--ink);
+    color: var(--ink);
+  }
+  .rail ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+  }
+  .railLink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 8px 14px;
+    border: var(--kontur-fein) solid transparent;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 150ms ease;
+  }
+  .railLink:hover {
+    background: var(--blau-tief);
+    color: #fff;
+  }
+  .railLink[aria-current="page"] {
+    background: var(--gelb);
+    border-color: var(--ink);
+  }
+  .name {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,51 @@
+.buehne {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 96px var(--abstand-seite) 40px;
+  background:
+    linear-gradient(var(--blau) 0 0) top / 100% 38dvh no-repeat,
+    var(--creme);
+  border-top: 0;
+}
+
+.karte {
+  width: min(100%, 420px);
+  background: var(--weiss);
+  border: var(--kontur) solid var(--ink);
+  border-radius: var(--radius-gross);
+  padding: 0 22px 26px;
+  display: grid;
+  gap: 18px;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  margin: -64px auto 0;
+  border-radius: 50%;
+  border: var(--kontur) solid var(--ink);
+  background: var(--creme);
+}
+
+.titel {
+  font-size: 46px;
+  text-align: center;
+}
+
+.untertitel {
+  text-align: center;
+}
+
+.text {
+  text-align: center;
+  color: var(--ink-weich);
+}
+
+.fuss {
+  font-size: 14px;
+  text-align: center;
+  color: var(--ink-weich);
+  border-top: var(--kontur-fein) dashed var(--creme-tief);
+  padding-top: 14px;
+}

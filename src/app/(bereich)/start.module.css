@@ -1,0 +1,189 @@
+/* Handy: eine Spalte in fester Reihenfolge. PC: zwei unabhängige Stapel ohne Löcher. */
+.raster {
+  display: flex;
+  flex-direction: column;
+  gap: var(--abstand-block);
+}
+
+.spalte {
+  display: contents;
+}
+
+.platzPlakat { order: 1; }
+.platzGossen { order: 2; }
+.platzKoenig { order: 3; }
+.platzDanach { order: 4; }
+.platzLetzter { order: 5; }
+
+@media (min-width: 900px) {
+  .raster {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: start;
+  }
+  .spalte {
+    display: flex;
+    flex-direction: column;
+    gap: var(--abstand-block);
+  }
+}
+
+/* Plakat ---------------------------------------------------------------------- */
+
+.plakat {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding: 18px 18px 20px;
+  margin-top: 12px;
+  background: var(--gelb);
+  border: var(--kontur) solid var(--ink);
+  border-radius: var(--radius-gross);
+}
+
+.plakatLeer {
+  margin-top: 0;
+}
+
+.plakat h2 {
+  font-size: 16px;
+  padding-right: 64px;
+}
+
+.datum {
+  font-size: clamp(50px, 13.3vw, 80px);
+  margin: 2px 0 2px;
+  white-space: nowrap;
+}
+
+.ort {
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.plakatText {
+  color: var(--gelb-tief);
+  font-weight: 600;
+  max-width: 44ch;
+}
+
+.plakat :global(.knopfreihe) {
+  margin-top: 10px;
+}
+
+/* Der Störer klebt wie ein Aufkleber über der Ecke des Plakats. */
+.stoerer {
+  position: absolute;
+  top: -16px;
+  right: -8px;
+  width: 86px;
+  height: 86px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+  background: var(--rot);
+  color: #fff;
+  border: var(--kontur) solid var(--ink);
+  border-radius: 50%;
+  transform: rotate(9deg);
+  animation: stempeln 600ms cubic-bezier(0.16, 1, 0.3, 1) both 120ms;
+}
+
+.stoererKlein {
+  font: 800 11px/1 var(--font-ui);
+  font-stretch: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stoererZahl {
+  font-family: var(--font-plakat);
+  font-size: 32px;
+  line-height: 1;
+  color: var(--gelb);
+  text-shadow: 2px 2px 0 var(--ink);
+  margin: 1px 0 2px;
+}
+
+.stoererWort {
+  font-family: var(--font-plakat);
+  font-size: 19px;
+  line-height: 1;
+  color: var(--gelb);
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+@keyframes stempeln {
+  from {
+    transform: rotate(-12deg) scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Titel ------------------------------------------------------------------------ */
+
+.titeltraeger {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.titeltraeger :global(.zahl) {
+  white-space: nowrap;
+}
+
+.titeltraeger :global(.plakatschrift--tinte) {
+  font-size: 27px;
+}
+
+.notiz {
+  color: var(--ink-weich);
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+/* Termine danach ---------------------------------------------------------------- */
+
+.terminListe {
+  list-style: none;
+  padding: 6px 16px 12px;
+  display: grid;
+}
+
+.terminListe li {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--creme-tief);
+}
+
+.terminListe li:last-child {
+  border-bottom: 0;
+}
+
+.terminDatum {
+  display: grid;
+  justify-items: center;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: var(--radius-klein);
+  padding: 4px 0;
+  background: var(--creme);
+  font-size: 13px;
+}
+
+.terminDatum strong {
+  font-size: 17px;
+}
+
+@media (min-width: 900px) {
+  .plakat {
+    padding: 26px 28px 28px;
+  }
+}

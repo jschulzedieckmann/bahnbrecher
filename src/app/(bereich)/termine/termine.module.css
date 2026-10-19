@@ -1,0 +1,94 @@
+.reiter {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: var(--kontur) solid var(--ink);
+  border-radius: 999px;
+  background: var(--weiss);
+  justify-self: start;
+}
+
+.reiterKnopf {
+  min-height: 40px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.reiterKnopf[aria-selected="true"] {
+  background: var(--ink);
+  color: var(--creme);
+}
+
+.liste {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.karte {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 14px;
+}
+
+.karte > :global(.knopf) {
+  grid-column: 2;
+  justify-self: start;
+}
+
+.kegel {
+  background: var(--gelb);
+}
+
+.datumBlock {
+  display: grid;
+  justify-items: center;
+  padding: 6px 0 8px;
+  border: var(--kontur) solid var(--ink);
+  border-radius: var(--radius-klein);
+  background: var(--weiss);
+}
+
+.datumBlock strong {
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.jahr {
+  font-size: 13px;
+  color: var(--ink-weich);
+}
+
+.text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.titel {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.notiz {
+  color: var(--ink-weich);
+  margin-top: 4px;
+}
+
+@media (min-width: 700px) {
+  .karte {
+    grid-template-columns: 84px 1fr auto;
+    align-items: center;
+  }
+  .karte > :global(.knopf) {
+    grid-column: auto;
+  }
+}

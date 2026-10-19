@@ -1,0 +1,29 @@
+.liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.liste li + li {
+  border-top: 1px solid var(--creme-tief);
+}
+
+.eintrag {
+  display: grid;
+  grid-template-columns: 1fr auto 20px;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.eintrag:hover {
+  background: var(--creme);
+}
+
+.rolle {
+  font-size: 14px;
+  color: var(--ink-weich);
+}

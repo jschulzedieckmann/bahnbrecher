@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Die Bahnbrecher
 
-## Getting Started
+Geschlossene Mitglieder-App des Kegelclubs „Die Bahnbrecher“ aus Lüdinghausen: Termine, Spieltage mit Statistik, Kegelspiele, Satzung und Beitrag. Nur mit Login.
 
-First, run the development server:
+## Technik
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js 16 (App Router, `src/app`), React 19, TypeScript
+- Supabase (Login, Postgres mit Row Level Security), Projekt in Frankfurt
+- Hosting auf Vercel, Region Frankfurt; täglicher Wachhalte-Aufruf `/api/wach` per Vercel Cron
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Lokal starten
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. `.env.example` nach `.env.local` kopieren und ausfüllen (Werte im Supabase-Dashboard).
+2. `npm install`
+3. `npm run dev`, dann http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Datenbank
 
-## Learn More
+- Schema: `supabase/migrations/`
+- Startdaten (Mitglieder, vergangene Kegelabende, Kegelspiele): `node --env-file=.env.local scripts/startdaten.mjs`
+- Vorübergehender Testzugang für Prüfungen: `scripts/testzugang.mjs anlegen` bzw. `loeschen`
 
-To learn more about Next.js, take a look at the following resources:
+## Weitere Unterlagen
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `PRODUCT.md`: wofür die App da ist
+- `DESIGN.md`: Design-System
+- `texte.md`: alle Texte der App
+- `WEBSITE-STATUS.md`: Projektstand und Entscheidungen

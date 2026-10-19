@@ -1,0 +1,180 @@
+{
+  "quelle": "inhalte/kegelabende-quelle.md (Foto der Tabelle „Statistik Kegeln“)",
+  "regeln": [
+    "Nur anwesende Mitglieder bekommen Werte.",
+    "Leere Zelle bei Anwesenden = 0, Annahme bis zur Bestätigung.",
+    "Gossen am 2026-02-27 wurden nicht erfasst: null = unbekannt, nicht 0.",
+    "Pudel wurden an keinem der drei Abende erfasst: null = unbekannt."
+  ],
+  "mitglieder": [
+    "Julian",
+    "Christopher",
+    "Christian L.",
+    "Nico",
+    "Alex",
+    "Sven",
+    "Hendrik",
+    "Marcus"
+  ],
+  "spieltage": [
+    {
+      "datum": "2026-02-27",
+      "ergebnisse": [
+        {
+          "name": "Julian",
+          "alle_neune": 5,
+          "siege": 1,
+          "gossen": null,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Christopher",
+          "alle_neune": 1,
+          "siege": 0,
+          "gossen": null,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Christian L.",
+          "alle_neune": 1,
+          "siege": 0,
+          "gossen": null,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Sven",
+          "alle_neune": 4,
+          "siege": 1,
+          "gossen": null,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Hendrik",
+          "alle_neune": 1,
+          "siege": 1,
+          "gossen": null,
+          "kranz": 0,
+          "pudel": null
+        }
+      ]
+    },
+    {
+      "datum": "2026-05-28",
+      "ergebnisse": [
+        {
+          "name": "Julian",
+          "alle_neune": 5,
+          "siege": 0,
+          "gossen": 12,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Christopher",
+          "alle_neune": 4,
+          "siege": 0,
+          "gossen": 18,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Christian L.",
+          "alle_neune": 5,
+          "siege": 0,
+          "gossen": 10,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Alex",
+          "alle_neune": 5,
+          "siege": 0,
+          "gossen": 10,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Sven",
+          "alle_neune": 0,
+          "siege": 1,
+          "gossen": 6,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Marcus",
+          "alle_neune": 2,
+          "siege": 0,
+          "gossen": 20,
+          "kranz": 0,
+          "pudel": null
+        }
+      ]
+    },
+    {
+      "datum": "2026-06-25",
+      "ergebnisse": [
+        {
+          "name": "Julian",
+          "alle_neune": 0,
+          "siege": 1,
+          "gossen": 7,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Christopher",
+          "alle_neune": 3,
+          "siege": 0,
+          "gossen": 11,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Christian L.",
+          "alle_neune": 2,
+          "siege": 1,
+          "gossen": 7,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Nico",
+          "alle_neune": 1,
+          "siege": 1,
+          "gossen": 11,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Alex",
+          "alle_neune": 1,
+          "siege": 0,
+          "gossen": 5,
+          "kranz": 1,
+          "pudel": null
+        },
+        {
+          "name": "Sven",
+          "alle_neune": 1,
+          "siege": 1,
+          "gossen": 10,
+          "kranz": 0,
+          "pudel": null
+        },
+        {
+          "name": "Hendrik",
+          "alle_neune": 0,
+          "siege": 3,
+          "gossen": 7,
+          "kranz": 0,
+          "pudel": null
+        }
+      ]
+    }
+  ]
+}

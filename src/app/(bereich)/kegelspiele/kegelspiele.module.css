@@ -1,0 +1,134 @@
+.filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: end;
+}
+
+.filter > :global(.knopf) {
+  grid-column: 1 / -1;
+}
+
+.zufall {
+  display: grid;
+  gap: 6px;
+  padding: 16px 18px;
+  background: var(--blau);
+  border: var(--kontur) solid var(--ink);
+  border-radius: var(--radius-gross);
+  color: var(--ink);
+  font-weight: 600;
+  animation: rein 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.zufallTitel {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+@keyframes rein {
+  from {
+    transform: translateY(8px) rotate(-1.5deg);
+    opacity: 0;
+  }
+}
+
+.liste {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.karte {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  height: 100%;
+  text-decoration: none;
+  transition: background-color 150ms ease, transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.karte:hover {
+  background: var(--creme);
+  transform: translateY(-2px);
+}
+
+.kopf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.name {
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1.15;
+}
+
+.form {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-stretch: 80%;
+  color: var(--ink-weich);
+}
+
+.regel {
+  color: var(--ink-weich);
+}
+
+.grad {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  padding: 3px 10px 3px 6px;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.leicht {
+  background: #d9f0df;
+}
+
+.mittel {
+  background: var(--gelb);
+}
+
+.schwer {
+  background: var(--rot);
+  color: #fff;
+}
+
+.kegel {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.kegel span {
+  width: 6px;
+  height: 12px;
+  border-radius: 3px 3px 2px 2px;
+  border: 1.5px solid currentColor;
+}
+
+.kegel .voll {
+  background: currentColor;
+}
+
+@media (min-width: 700px) {
+  .filter {
+    grid-template-columns: 220px 220px auto;
+    justify-content: start;
+  }
+  .filter > :global(.knopf) {
+    grid-column: auto;
+  }
+}

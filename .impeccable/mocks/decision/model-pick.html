@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<title>Bierdeckel</title>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Nanum+Pen+Script&family=Archivo:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{--pappe:#F4EFE3;--kuli:#1B3F8B;--rot:#EB0620;--gelb:#FED51C;--ink:#000C16}
+*{box-sizing:border-box;margin:0}
+body{width:390px;height:844px;overflow:hidden;background:var(--pappe);color:var(--ink);font-family:Archivo,sans-serif;font-variant-numeric:tabular-nums;display:flex;flex-direction:column}
+header{padding:16px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #d9cfb8}
+header h1{font:20px "Bowlby One";color:var(--rot);letter-spacing:.02em}
+header p{font:26px "Nanum Pen Script";color:var(--kuli)}
+main{flex:1;padding:18px 16px;display:flex;flex-direction:column;gap:18px}
+.deckel{width:250px;height:250px;margin:0 auto;border-radius:50%;background:#fff;border:10px solid var(--rot);box-shadow:0 6px 18px rgba(80,50,0,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
+.deckel::before{content:"";position:absolute;inset:8px;border-radius:50%;border:2px dashed var(--rot)}
+.deckel h2{font:13px "Bowlby One";letter-spacing:.08em;color:var(--rot)}
+.deckel .d{font:44px/1 "Bowlby One";margin:8px 0 4px}
+.deckel .o{font-weight:700;font-size:14px}
+.deckel .h{font:24px "Nanum Pen Script";color:var(--kuli);margin-top:6px}
+.zettel h2{font:15px "Bowlby One";letter-spacing:.04em;margin-bottom:8px}
+.zeile{display:grid;grid-template-columns:100px 1fr 30px;align-items:center;padding:7px 0;border-bottom:1px solid #d9cfb8;font-weight:700}
+.striche{display:flex;gap:10px;color:var(--kuli)}
+.b{position:relative;display:flex;gap:4px;height:20px}
+.b span{width:2.5px;background:var(--kuli);border-radius:2px;height:20px;transform:rotate(3deg)}
+.b.voll::after{content:"";position:absolute;left:-4px;right:-4px;top:9px;height:2.5px;background:var(--kuli);transform:rotate(-28deg)}
+.n{text-align:right;color:var(--kuli);font:24px "Nanum Pen Script"}
+.syn{font-size:12px;color:#4d4635}
+nav{border-top:2px solid #d9cfb8;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 4px 22px;background:#fff}
+nav a{display:flex;flex-direction:column;align-items:center;gap:4px;font:700 12px Archivo;color:var(--ink);text-decoration:none}
+nav i{width:24px;height:24px;border-radius:50%;border:2.5px solid var(--ink)}
+nav a.on i{background:var(--rot);border-color:var(--rot)}
+</style></head><body>
+<header><h1>DIE BAHNBRECHER</h1><p>Moin, Julian!</p></header>
+<main>
+  <section class="deckel"><h2>NÄCHSTER KEGELABEND</h2><div class="d">13.11.</div><div class="o">Gaststätte Schwenken</div><div class="h">noch 26 Tage</div></section>
+  <p class="syn" style="text-align:center">Datum ist ein Beispiel</p>
+  <section class="zettel"><h2>Gossen am 25.06.</h2>
+    <div class="zeile"><span>Christopher</span><div class="striche"><div class="b voll"><span></span><span></span><span></span><span></span></div><div class="b voll"><span></span><span></span><span></span><span></span></div><div class="b"><span></span></div></div><span class="n">11</span></div>
+    <div class="zeile"><span>Nico</span><div class="striche"><div class="b voll"><span></span><span></span><span></span><span></span></div><div class="b voll"><span></span><span></span><span></span><span></span></div><div class="b"><span></span></div></div><span class="n">11</span></div>
+    <div class="zeile"><span>Sven</span><div class="striche"><div class="b voll"><span></span><span></span><span></span><span></span></div><div class="b voll"><span></span><span></span><span></span><span></span></div></div><span class="n">10</span></div>
+    <div class="zeile"><span>Julian</span><div class="striche"><div class="b voll"><span></span><span></span><span></span><span></span></div><div class="b"><span></span><span></span></div></div><span class="n">7</span></div>
+  </section>
+</main>
+<nav><a class="on" href="#"><i></i>Start</a><a href="#"><i></i>Termine</a><a href="#"><i></i>Spieltage</a><a href="#"><i></i>Statistik</a><a href="#"><i></i>Mehr</a></nav>
+</body></html>

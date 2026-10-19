@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+!.env.example
+
+# Arbeitsdateien, die nicht ins Repository gehören
+/archiv/
+/referenzen/kandidaten/
+/referenzen/auswahl.html
+/.impeccable/review/
+/.impeccable/build/
+/.impeccable/live/

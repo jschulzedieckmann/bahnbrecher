@@ -1,0 +1,44 @@
+.satzung {
+  display: grid;
+  gap: 14px;
+  max-width: 70ch;
+}
+
+.paragraph {
+  display: grid;
+  gap: 8px;
+  padding: 16px 18px;
+  background: var(--weiss);
+  border: var(--kontur) solid var(--ink);
+  border-radius: var(--radius);
+}
+
+.paragraph:first-of-type {
+  background: var(--gelb);
+}
+
+.paragraph h2 {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.15;
+  color: var(--rot-tief);
+}
+
+.paragraph:first-of-type h2 {
+  color: var(--ink);
+}
+
+.paragraph ul {
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+}
+
+.paragraph li::marker {
+  color: var(--rot);
+}
+
+.fuss {
+  color: var(--ink-weich);
+  font-weight: 600;
+}

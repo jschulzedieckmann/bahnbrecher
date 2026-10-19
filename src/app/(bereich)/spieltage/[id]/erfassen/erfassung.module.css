@@ -1,0 +1,244 @@
+.erfassung {
+  display: grid;
+  gap: 14px;
+}
+
+.hinweis {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--gelb);
+  border: var(--kontur) solid var(--ink);
+  border-radius: var(--radius);
+  font-weight: 700;
+}
+
+.hinweisZu {
+  margin-left: auto;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: 50%;
+  background: var(--weiss);
+  cursor: pointer;
+}
+
+.schritte {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.schritte button {
+  all: unset;
+  cursor: pointer;
+  padding: 8px 14px;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: 999px;
+  font-weight: 800;
+  background: var(--weiss);
+}
+
+.schritte button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.schritte button:focus-visible {
+  outline: 3px solid var(--blau);
+  outline-offset: 2px;
+}
+
+.schritte li[aria-current="step"] button {
+  background: var(--ink);
+  color: var(--creme);
+}
+
+.personen {
+  list-style: none;
+  padding: 12px 16px 0;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.person {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 8px 12px;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: var(--radius-klein);
+  background: var(--weiss);
+  font-weight: 800;
+  font-size: 17px;
+  transition: background-color 140ms ease;
+}
+
+.person:focus-visible {
+  outline: 3px solid var(--blau);
+  outline-offset: 2px;
+}
+
+.person[aria-pressed="true"] {
+  background: var(--gelb);
+}
+
+.haken {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: 6px;
+  background: var(--weiss);
+  flex: none;
+}
+
+.ergebnisse {
+  display: grid;
+  gap: 12px;
+}
+
+.schalter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-weight: 700;
+}
+
+.schalter label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+
+.schalter input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--ink);
+}
+
+.zeilen {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.zeile {
+  padding: 12px 14px 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.zeilenName {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.titel {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  background: var(--rot);
+  color: #fff;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: 999px;
+}
+
+.zaehlerReihe {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.zaehler {
+  display: grid;
+  gap: 4px;
+}
+
+.zaehlerName {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-stretch: 80%;
+}
+
+.zaehlerKnoepfe {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--weiss);
+}
+
+.zaehlerKnoepfe button {
+  all: unset;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  height: 48px;
+  background: var(--creme);
+  transition: background-color 120ms ease, transform 120ms ease;
+}
+
+.zaehlerKnoepfe button:active {
+  transform: scale(0.92);
+}
+
+.zaehlerKnoepfe button:focus-visible {
+  outline: 3px solid var(--blau);
+  outline-offset: -3px;
+}
+
+.zaehlerKnoepfe button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.zaehlerKnoepfe .plus {
+  background: var(--gelb);
+}
+
+.zaehlerKnoepfe output {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.aktionen {
+  position: sticky;
+  bottom: calc(var(--nav-hoehe) + 10px);
+  padding: 10px;
+  background: var(--creme);
+  border: var(--kontur) solid var(--ink);
+  border-radius: 999px;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .aktionen {
+    bottom: 16px;
+  }
+}
