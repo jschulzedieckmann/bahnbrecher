@@ -6,6 +6,8 @@
   height: 100dvh;
   overflow: hidden;
   display: grid;
+  /* minmax(0, 1fr): Ein langer Vorname im Kopf darf die Seite nicht breiter als den Bildschirm machen. */
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto minmax(0, 1fr) auto;
 }
 
@@ -25,7 +27,7 @@
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  min-width: 0;
+  flex: none;
 }
 
 .logo {
@@ -64,8 +66,12 @@
   .name {
     font-size: 20px;
   }
+  /* Lange Vornamen brechen um, statt abgeschnitten zu werden. */
   .gruss {
     font-size: 14px;
+    line-height: 1.15;
+    text-align: right;
+    white-space: normal;
   }
 }
 
