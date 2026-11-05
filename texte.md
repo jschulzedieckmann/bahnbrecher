@@ -91,6 +91,8 @@ Kein Zurücksetzen per E-Mail. Der Link unter dem Anmelde-Button öffnet nur die
 
 **Begrüßung:** Moin, {Vorname}!
 
+**Versionshinweis (unten im Inhaltsbereich jeder Seite):** Version {Kürzel} vom {Datum}, {Uhrzeit} Uhr
+
 ### Block „Nächster Spieltag“ (Plakat)
 
 Zeigt immer den nächsten Spieltag ab heute, also den nächsten geplanten Kegelabend.

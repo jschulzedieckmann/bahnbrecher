@@ -77,6 +77,8 @@
 }
 
 .scroller {
+  display: flex;
+  flex-direction: column;
   min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -93,6 +95,15 @@
   gap: 18px;
   align-content: start;
   min-width: 0;
+  flex: 1 0 auto;
+}
+
+/* Steht unter dem Inhalt, auch auf kurzen Seiten ganz unten. */
+.version {
+  padding: 0 var(--abstand-seite) 14px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-weich);
 }
 
 /* Tab-Leiste am Handy */

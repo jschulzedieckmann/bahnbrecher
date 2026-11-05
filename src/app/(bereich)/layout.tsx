@@ -19,6 +19,7 @@ export default async function BereichLayout({ children }: { children: React.Reac
         <Seitenleiste istAdmin={profil.rolle === "admin"} />
         <div className={styles.scroller}>
           <main className={styles.inhalt} id="inhalt">{children}</main>
+          <footer className={styles.version}>Version {process.env.APP_VERSION} vom {process.env.APP_STAND} Uhr</footer>
         </div>
       </div>
       <TabLeiste />
