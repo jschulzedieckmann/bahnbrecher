@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { erfassenPflicht } from "@/lib/auth";
+import { erfassenPflicht, mitgliedPflicht } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { WERTE } from "@/lib/daten";
 import type { FormStatus } from "@/app/(zugang)/aktionen";
@@ -120,6 +120,24 @@ export async function anmeldungSetzen(
         geaendert_von: ich.id,
       })
     : await supabase.from("anmeldungen").delete().eq("spieltag_id", spieltagId).eq("profil_id", profilId);
+  if (error) return { ok: false };
+  revalidatePath("/", "layout");
+  return { ok: true };
+}
+
+/** Die eigene Antwort: Jedes Mitglied darf nur sich selbst setzen. Die Rechte sichert zusätzlich die Datenbank. */
+export async function eigeneAnmeldungSetzen(spieltagId: string, status: "dabei" | "abgesagt" | null): Promise<{ ok: boolean }> {
+  const ich = await mitgliedPflicht();
+  const supabase = await createClient();
+  const { error } = status
+    ? await supabase.from("anmeldungen").upsert({
+        spieltag_id: spieltagId,
+        profil_id: ich.id,
+        status,
+        geaendert_am: new Date().toISOString(),
+        geaendert_von: ich.id,
+      })
+    : await supabase.from("anmeldungen").delete().eq("spieltag_id", spieltagId).eq("profil_id", ich.id);
   if (error) return { ok: false };
   revalidatePath("/", "layout");
   return { ok: true };

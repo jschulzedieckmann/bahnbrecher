@@ -1,0 +1,56 @@
+.huelle {
+  display: grid;
+  gap: 6px;
+  max-width: 420px;
+  margin-top: 6px;
+}
+
+.frage {
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.umschalter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: var(--kontur-fein) solid var(--ink);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.option {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  min-height: 46px;
+  font-weight: 800;
+  font-size: 15px;
+  background: var(--weiss);
+  transition: background-color 140ms ease;
+}
+
+.option + .option {
+  border-left: var(--kontur-fein) solid var(--ink);
+}
+
+.option:focus-visible {
+  outline: 3px solid var(--blau);
+  outline-offset: -4px;
+}
+
+/* Auf dem gelben Plakat trägt „Dabei“ den Rotton, gelb ginge im Hintergrund unter. */
+.option[aria-checked="true"][data-wert="dabei"] {
+  background: var(--rot);
+  color: var(--weiss);
+}
+
+.option[aria-checked="true"][data-wert="abgesagt"] {
+  background: var(--ink);
+  color: var(--creme);
+}
+
+.option[aria-checked="true"][data-wert="offen"] {
+  background: var(--creme-tief);
+}

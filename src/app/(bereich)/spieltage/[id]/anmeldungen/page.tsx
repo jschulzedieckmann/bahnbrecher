@@ -21,7 +21,7 @@ export default async function Anmeldungen({ params }: { params: Promise<{ id: st
     <>
       <Seitenkopf
         titel="Anmeldungen"
-        text={`${wochentagLang(tag.datum)}, ${datumKurz(tag.datum)} Trag ein, wer per WhatsApp zu- oder abgesagt hat. Jeder Tipp wird sofort gespeichert.`}
+        text={`${wochentagLang(tag.datum)}, ${datumKurz(tag.datum)} Jedes Mitglied kann selbst auf der Startseite antworten. Hier trägst du für andere ein, zum Beispiel wer per WhatsApp zu- oder abgesagt hat. Jeder Tipp wird sofort gespeichert.`}
       />
       <AnmeldungenListe
         spieltagId={tag.id}

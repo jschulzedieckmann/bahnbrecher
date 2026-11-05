@@ -15,7 +15,7 @@ Next.js (React), gewählt von der Person. Backend: Supabase (Login, Postgres-Dat
 Die Mitglieder von **Die Bahnbrecher**: ein neu gegründeter Kegelclub aus Lüdinghausen, bis etwa 12 Leute. Junge Väter und Menschen, die gern Zeit miteinander verbringen. Laut Satzung trifft sich der Club alle 4 Wochen, den Termin legt die Gruppe gemeinsam fest. Gekegelt wird auf der Bahn der Gaststätte Schwenken.
 
 Rollen:
-- **Mitglied:** schaut nach dem nächsten Termin, den Statistiken und der Mitgliederliste.
+- **Mitglied:** schaut nach dem nächsten Termin, den Statistiken und der Mitgliederliste und sagt selbst zum nächsten Spieltag zu oder ab.
 - **Schriftführer:** Mitglied, dem der Admin das Eintragen von Spieltagen erlaubt hat.
 - **Admin:** legt Mitglieder, Termine und Spieltage an und vergibt die Schriftführer-Rolle.
 
@@ -43,7 +43,7 @@ Bestätigt:
 - **Nur mit Login.** Ohne Anmeldung ist nichts zu sehen. Die Seite wird für Suchmaschinen gesperrt (noindex). Es gibt keine öffentliche Werbeseite.
 - **Accounts:** Der Admin legt die Mitglieder an und sagt ihnen Bescheid. Es gibt ein gemeinsames Startpasswort, das beim ersten Login geändert werden muss. Das Passwort selbst steht nicht in Projektdateien. Vergessene Passwörter setzt nur der Admin zurück, nach persönlicher Nachfrage oder per WhatsApp. Er setzt sie auf das Startpasswort zurück. Es gibt kein Zurücksetzen per E-Mail und keinen E-Mail-Versand.
 - **Spieltage im Mittelpunkt:** Der nächste Kegelabend wird als Spieltag geplant (Datum, Uhrzeit, Ort, Notiz) und steht immer im Plakat der Startseite. Am Abend selbst werden dort die Ergebnisse erfasst. Planen dürfen Admin und Schriftführer.
-- **Anmeldungen:** Zu- und Absagen zum nächsten Spieltag sammelt der Admin per WhatsApp und trägt sie ein (Admin und Schriftführer dürfen das). Plakat der Startseite und Spieltage-Seite zeigen „Dabei“, „Abgesagt“ und „Noch offen“. In der Erfassung am Abend sind die Zugesagten vorausgewählt.
+- **Anmeldungen:** Jedes Mitglied sagt im Plakat der Startseite selbst zu oder ab oder stellt sich zurück auf offen (nur für sich und nur für Spieltage ab heute). Admin und Schriftführer können zusätzlich für alle eintragen, etwa wenn jemand per WhatsApp antwortet. Plakat der Startseite und Spieltage-Seite zeigen „Dabei“, „Abgesagt“ und „Noch offen“. In der Erfassung am Abend sind die Zugesagten vorausgewählt.
 - **Termine** sind zweitrangig und nur für alles neben dem Kegeln da (Ausflüge, Sonstiges). Sie erscheinen auf der Startseite nur, wenn einer ansteht. Angelegt werden sie vom Admin.
 - **Spieltage und Statistik:** pro Spieltag und Mitglied werden Gossen, alle Neune, Kranzwürfe, Pudel und Siege festgehalten. Einheitlicher Begriff ist „Gosse“, nicht „Gasse“.
 - **Titel:** Gossenjunge ist, wer im laufenden Jahr die meisten Gossen geworfen hat (geändert am 2026-10-19, vorher pro Abend). **Kegelkönig oder Kegelkönigin des Jahres** ist, wer im Jahr die meisten Siege hat. Auswertung pro Spieltag und pro Jahr. Eintragen dürfen Admin und Schriftführer.

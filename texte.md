@@ -102,7 +102,12 @@ Zeigt immer den nächsten Spieltag ab heute, also den nächsten geplanten Kegela
 {Notiz, falls vorhanden}
 Stempel: noch {n} Tage (bzw. „Heute!“ / „Morgen“)
 
-**Anmeldungen (unter Ort und Uhrzeit, nach einer dünnen Linie):**
+**Eigene Antwort (unter Ort und Uhrzeit):**
+Bist du dabei?
+Umschalter: Dabei · Abgesagt · Offen (jedes Mitglied für sich selbst, wird sofort gespeichert)
+Fehler: Speichern hat nicht geklappt. Versuch es noch mal. / Keine Verbindung. Versuch es gleich noch mal.
+
+**Anmeldungen (darunter, nach einer dünnen Linie):**
 Dabei ({n}): {Namen}
 Abgesagt: {Namen} (nur wenn jemand abgesagt hat)
 Noch offen: {Namen} (nur wenn jemand fehlt)
@@ -298,11 +303,11 @@ Buttons: Abschließen · Weiter erfassen
 
 ### Anmeldungen eintragen (Schriftführer und Admins)
 
-Die Zu- und Absagen kommen per WhatsApp. Eingetragen werden sie hier, die Mitglieder melden sich nicht selbst an.
+Jedes Mitglied antwortet selbst auf der Startseite. Hier tragen Schriftführer und Admins für andere ein, zum Beispiel wer per WhatsApp zu- oder abgesagt hat.
 
 **Überschrift:** Anmeldungen
 
-**Text:** {Wochentag}, {Datum}. Trag ein, wer per WhatsApp zu- oder abgesagt hat. Jeder Tipp wird sofort gespeichert.
+**Text:** {Wochentag}, {Datum}. Jedes Mitglied kann selbst auf der Startseite antworten. Hier trägst du für andere ein, zum Beispiel wer per WhatsApp zu- oder abgesagt hat. Jeder Tipp wird sofort gespeichert.
 
 **Zusammenfassung:** {n} dabei · {n} abgesagt · {n} offen
 

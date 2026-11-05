@@ -9,6 +9,7 @@ import {
 } from "@/lib/format";
 import { Banderole, Rangliste } from "@/components/bausteine";
 import { AnmeldeAnzeige } from "@/components/anmelde-anzeige";
+import { EigeneAnmeldung } from "@/components/eigene-anmeldung";
 import styles from "./start.module.css";
 
 const ART_NAME = { kegelabend: "Kegelabend", ausflug: "Ausflug", sonstiges: "Termin" } as const;
@@ -28,7 +29,9 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
   ]);
   const istAdmin = profil.rolle === "admin";
   const letzter = await letzterGewerteterSpieltag(alleTage);
-  const anmeldeStand = naechster ? anmeldeListe(await anmeldungen(naechster.id), leute) : null;
+  const anmeldeZeilen = naechster ? await anmeldungen(naechster.id) : [];
+  const anmeldeStand = naechster ? anmeldeListe(anmeldeZeilen, leute) : null;
+  const meineAntwort = anmeldeZeilen.find((a) => a.profil_id === profil.id)?.status ?? null;
   const erg = await ergebnisse([...new Set([...tageJahr.map((t) => t.id), ...(letzter ? [letzter.id] : [])])]);
   const namen = namensKarte(leute);
 
@@ -53,7 +56,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
       <div className={styles.raster}>
         <div className={styles.spalte}>
           <div className={styles.platzPlakat}>
-            <Plakat spieltag={naechster} kannErfassen={darfErfassen(profil)} anmeldeStand={anmeldeStand} ichId={profil.id} />
+            <Plakat spieltag={naechster} kannErfassen={darfErfassen(profil)} anmeldeStand={anmeldeStand} ichId={profil.id} meineAntwort={meineAntwort} />
           </div>
 
           {weitereTermine.length > 0 && (
@@ -139,11 +142,12 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
   );
 }
 
-function Plakat({ spieltag, kannErfassen, anmeldeStand, ichId }: {
+function Plakat({ spieltag, kannErfassen, anmeldeStand, ichId, meineAntwort }: {
   spieltag: Spieltag | null;
   kannErfassen: boolean;
   anmeldeStand: { dabei: MitgliedKurz[]; abgesagt: MitgliedKurz[]; offen: MitgliedKurz[] } | null;
   ichId: string;
+  meineAntwort: "dabei" | "abgesagt" | null;
 }) {
   if (!spieltag) {
     return (
@@ -170,6 +174,7 @@ function Plakat({ spieltag, kannErfassen, anmeldeStand, ichId }: {
         {[uhrzeit(spieltag.uhrzeit) && `${uhrzeit(spieltag.uhrzeit)} Uhr`, spieltag.ort].filter(Boolean).join(" · ") || "Ort und Uhrzeit folgen"}
       </p>
       {spieltag.notiz && <p className={styles.plakatText}>{spieltag.notiz}</p>}
+      <EigeneAnmeldung key={spieltag.id} spieltagId={spieltag.id} start={meineAntwort} />
       {anmeldeStand && <AnmeldeAnzeige liste={anmeldeStand} ichId={ichId} />}
       <div className={styles.stoerer} role="img" aria-label={nochTage(spieltag.datum)}>
         {tage === 0 ? (
